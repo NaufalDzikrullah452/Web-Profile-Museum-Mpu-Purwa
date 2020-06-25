@@ -15,7 +15,7 @@
                                     <span>Booking</span></a>
                                 <ul class="collapse">
                                     <li><a href="<?php echo base_url();?>index.php/back_n/reservation">List Booking</a></li>
-                                    <li><a href="<?php echo base_url();?>index.php/back_n/reservation/confirmed">Booking Terkonfirmasi</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/back_n/reservation/confirmed">Booking Valid</a></li>
                                 </ul>
                             </li>
                             <li>

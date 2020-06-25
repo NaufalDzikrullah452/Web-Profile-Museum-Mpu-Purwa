@@ -33,7 +33,8 @@
                     <!-- Contact Form Area -->
                     <div class="contact-form-area mb-100">
                     <?php echo $this->session->flashdata('msg');?>
-                        <form action="<?php echo site_url('index.php/reservation/submit_reservation');?>" method="post" enctype="multipart/form-data">
+                        <form action="<?php echo site_url('index.php/reserv/submit_reservation');?>" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="reserv_id" required>
                             <div class="row">
                                  <div class="col-12">
                                     <div class="form-group">
@@ -47,7 +48,7 @@
                                 </div>
                                  <div class="col-12">
                                     <div class="form-group">
-                                        <input type="file" name="surat_rekomendasi" placeholder="surat rekomendasi dari sekolah">
+                                        <input type="file" name="dokumen" placeholder="surat rekomendasi dari sekolah">
                                         <br>
                                         <smalls style="color:grey;">*Surat rekomendasi dari sekolah (format harus pdf/docx)</small>
                                     </div>

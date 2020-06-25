@@ -9,7 +9,7 @@ class Reservation_model extends CI_Model{
 	}
 
 	function get_all_reservation_confirmed(){
-		$result = $this->db->query("SELECT reserv_id,DATE_FORMAT(reserv_date,'%d %M %Y %H:%i') AS reserv_date,reserv_nama_sekolah,reserv_penanggung_jwb,reserv_file,reserv_telp,reserv_email,reserv_jml_peserta,reserv_catatan FROM tbl_reservation WHERE reserv_status_message='1' ORDER BY reserv_id");
+		$result = $this->db->query("SELECT reserv_id,DATE_FORMAT(reserv_date,'%d %M %Y %H:%i') AS reserv_date,reserv_nama_sekolah,reserv_penanggung_jwb,reserv_file,reserv_telp,reserv_email,reserv_jml_peserta,reserv_catatan,reserv_status,reserv_status_message FROM tbl_reservation WHERE reserv_status_message='1' ORDER BY reserv_id");
 		return $result;
 	}
 
@@ -18,7 +18,7 @@ class Reservation_model extends CI_Model{
 		return $query;
 	}
 
-	function confirm_reservation($reserv_id){
+	function validation_reservation($reserv_id){
 		$this->db->set('reserv_status_message', '1');
 		$this->db->where('reserv_id', $reserv_id);
 		$this->db->update('tbl_reservation');

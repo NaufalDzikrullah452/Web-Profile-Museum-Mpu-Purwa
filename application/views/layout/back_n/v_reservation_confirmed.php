@@ -67,7 +67,6 @@
                                                 <?php if($row->reserv_status_message=='1')
                                                     {   echo '<i tabindex="0" class="fa fa-check-circle" role="button" data-placement="bottom" data-toggle="popover" data-trigger="focus" title="" data-content="Data sudah diperiksa" data-original-title="Data Valid" style="color: #27ae60;"></i>';
                                                     }else{
-                                                        echo '<i tabindex="0" class="fa fa-minus-circle" role="button" data-placement="bottom" data-toggle="popover" data-trigger="focus" title="" data-content="Data belum diperiksa" data-original-title="Belum Valid" style="color: #d63031;"></i>';
                                                     }?>
                                                 </td>
                                                 <td style="vertical-align: middle;"><strong><?php echo $row->reserv_nama_sekolah;?></strong></td>
@@ -80,20 +79,14 @@
                                                         <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                                             Action <span class="caret"></span>
                                                         </button>
-                                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                        <?php if($row->reserv_status_message=='0'):?>
-                                                            <a class="dropdown-item edit" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
-                                                            <a class="dropdown-item validation" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>"data-toggle="modal" data-target="#ModalValidation<?php echo $row->reserv_id;?>"><i class="fa fa-check"></i> Validasi</a>
-                                                            <a class="dropdown-item" href="<?php echo site_url('index.php/back_n/reservation/detail/'.$row->reserv_id);?>"><i class="fa fa-external-link"></i> Detail</a>
-                                                            <a class="dropdown-item delete" href="javascript:void(0);"  data-reserv_id="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
-                                                        <?php else:?>
-                                                            <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" ><i class="fa fa-mail-reply"></i> Balas</a>
-                                                            <a class="dropdown-item edit" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
-                                                            <a class="dropdown-item" href="<?php echo site_url('index.php/back_n/reservation/detail/'.$row->reserv_id);?>"><i class="fa fa-external-link"></i> Detail</a>
-                                                            <a class="dropdown-item delete" href="javascript:void(0);"  data-reserv_id="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
-                                                        <?php endif;?>
-                                                    </div>
+                                                <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                    <a class="dropdown-item edit" href="javascript:void(0);" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
+                                                    <a class="dropdown-item validation" href="javascript:void(0);" data-toggle="modal" data-target="#ModalValid<?php echo $row->reserv_id;?>"><i class="fa fa-check"></i> Validasi</a>
+                                                    <a class="dropdown-item" href="<?php echo site_url('index.php/back_n/reservation/detail/'.$row->reserv_id);?>"><i class="fa fa-external-link"></i> Detail</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" ><i class="fa fa-mail-reply"></i> Balas</a>
+                                                    <a class="dropdown-item delete" href="javascript:void(0);"  data-userid="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
                                                 </div>
+                                                    </div>
                                                
                                                 </td>
                                             </tr>
@@ -104,7 +97,6 @@
                                                 <?php if($row->reserv_status_message=='1')
                                                     {   echo '<i tabindex="0" class="fa fa-check-circle" role="button" data-placement="bottom" data-toggle="popover" data-trigger="focus" title="" data-content="Data sudah diperiksa" data-original-title="Data Valid" style="color: #27ae60;"></i>';
                                                     }else{
-                                                        echo '<i tabindex="0" class="fa fa-minus-circle" role="button" data-placement="bottom" data-toggle="popover" data-trigger="focus" title="" data-content="Data belum diperiksa" data-original-title="Belum Valid" style="color: #d63031;"></i>';
                                                     }?>
                                                 </td>
                                                 <td style="vertical-align: middle;"><?php echo $row->reserv_nama_sekolah;?></td>
@@ -117,20 +109,14 @@
                                                         <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                                             Action <span class="caret"></span>
                                                         </button>
-                                                    <div class="dropdown-menu dropdown-menu-right" role="menu">
-                                                        <?php if($row->reserv_status_message=='0'):?>
-                                                            <a class="dropdown-item edit" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
-                                                            <a class="dropdown-item validation" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" data-target="#ModalValidation<?php echo $row->reserv_id;?>"><i class="fa fa-check"></i> Validasi</a>
+                                                        <div class="dropdown-menu dropdown-menu-right" role="menu">
+                                                            <a class="dropdown-item edit" href="javascript:void(0);" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
+                                                            <a class="dropdown-item validation" href="javascript:void(0);" data-toggle="modal" data-target="#ModalValid<?php echo $row->reserv_id;?>"><i class="fa fa-check"></i> Validasi</a>
                                                             <a class="dropdown-item" href="<?php echo site_url('index.php/back_n/reservation/detail/'.$row->reserv_id);?>"><i class="fa fa-external-link"></i> Detail</a>
-                                                            <a class="dropdown-item delete" href="javascript:void(0);"  data-reserv_id="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
-                                                        <?php else:?>
-                                                            <a class="dropdown-item" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" ><i class="fa fa-mail-reply"></i> Balas</a>
-                                                            <a class="dropdown-item edit" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
-                                                            <a class="dropdown-item" href="<?php echo site_url('index.php/back_n/reservation/detail/'.$row->reserv_id);?>"><i class="fa fa-external-link"></i> Detail</a>
-                                                            <a class="dropdown-item delete" href="javascript:void(0);"  data-reserv_id="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
-                                                        <?php endif;?>
-                                                    </div>
+                                                            <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" ><i class="fa fa-mail-reply"></i> Balas</a>
+                                                            <a class="dropdown-item delete" href="javascript:void(0);"  data-userid="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
                                                 </div>
+                                                    </div>
                                                 </td>
                                             </tr>
                                             <?php endif;?>
@@ -179,7 +165,7 @@
                                         </div>
                                  </div>
                                             <div class="modal-footer">
-                                                <input type="hidden" name="user_id" value="<?php echo $row->user_id;?>">
+                                                <input type="hidden" name="user_id" value="<?php echo $row->user_id;?>" required>
                                                 <button type="button" class="btn btn-secondary btn-sm mb-3" data-dismiss="modal">Cancel</button>
                                                 <button type="submit" class="btn btn-success btn-sm mb-3">Update</button>
                                             </div>
@@ -191,7 +177,7 @@
                              <!-- Modal Edit Reserv End -->
                              <!--Validation MODAL-->
                             <form action="<?php echo site_url('index.php/back_n/reservation/validation');?>" method="post">
-                                <div class="modal fade" id="ModalValidation" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal fade" id="ModalValid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
@@ -204,7 +190,7 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <input type="hidden" name="reserv_id2" required>
+                                                <input type="hidden" name="comment_id4" required>
                                                 <button type="button" class="btn btn-default btn-sm mb-3" data-dismiss="modal">Batal</button>
                                                 <button type="submit" class="btn btn-success btn-sm mb-3">Validasi</button>
                                             </div>
@@ -212,26 +198,26 @@
                                     </div>
                                 </div>
                             </form>
-                            <!--Validation MODAL-->
+                            <!--Validation MODAL-->           
                              <!-- Modal hapus-->
                             <form  action="<?php echo base_url().'index.php/back_n/reservation/delete'?>" method="post" enctype="multipart/form-data">
                                 <div class="modal fade" id="ModalDelete">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Hapus Reservasi</h5>
+                                                <h5 class="modal-title">Delete User</h5>
                                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                                             </div>
                                         <div class="modal-body">
-                                            <strong>Anda yakin mau menghapus data ini?</strong>
+                                            <strong>Anda yakin mau menghapus user ini?</strong>
                                             <div class="form-group">
-                                                <input type="hidden"  name="kode" class="form-control"  required>
+                                                <input type="hidden" id="txt_kode" name="kode" class="form-control" placeholder="Name" required>
                                             </div>
                                         </div>
 
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary btn-sm mb-3" data-dismiss="modal">Batal</button>
-                                                <button type="submit" class="btn btn-danger btn-sm mb-3">Hapus</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mb-3" data-dismiss="modal">Cancel</button>
+                                                <button type="submit" class="btn btn-danger btn-sm mb-3">Delete</button>
                                             </div>
                                         </div>
                                     </div>

@@ -19,50 +19,22 @@
                     $('.comment').code(msg);
                 });
 
-                $('.btn-delete').on('click',function(){
-                    var comm_id=$(this).data('comment_id');
-                    $('#DeleteModal').modal('show');
-                    $('[name="comment_id3"]').val(comm_id);
+                $('.delete').on('click',function(){
+                    var reserv_id=$(this).data('reserv_id');
+                    $('#ModalDelete').modal('show');
+                    $('[name="kode"]').val(reserv_id);
                 });
 
-                $('.btn-publish').on('click',function(){
-                    var comm_id=$(this).data('comment_id');
-                    $('#PublishModal').modal('show');
-                    $('[name="comment_id4"]').val(comm_id);
+                $('.validation').on('click',function(){
+                    var reserv_id=$(this).data('reserv_id');
+                    $('#ModalValidation').modal('show');
+                    $('[name="reserv_id2"]').val(reserv_id);
                 });
-
-                $('.btn-image').on('click',function(){
-                    var comm_id=$(this).data('comment_id');
-                    var name=$(this).data('name');
-                    var email=$(this).data('email');
-                    $('#ImageModal').modal('show');
-                    $('[name="comment_id5"]').val(comm_id);
-                    $('[name="name"]').val(name);
-                    $('[name="email"]').val(email);
-                });
-                
-                
-                $('.summernote').summernote({
-                  height: 200,
-                  toolbar: [    
-                        ['style', ['style']],
-                        ['font', ['bold', 'italic', 'underline', 'clear']],
-                        ['fontsize', ['fontsize']],
-                        ['color', ['color']],
-                        ['para', ['ul', 'ol', 'paragraph']],       
-                        ['insert', ['link', 'picture', 'hr']],
-                        ['view', ["fullscreen", "codeview", "help"]],
-                      ],
-
-                    onImageUpload: function(files, editor, welEditable) {
-                        sendFile(files[0], editor, welEditable);
-                    } 
-                });
-
+               
             });
         </script>
         <!--Toast Message-->
-        <?php if($this->session->flashdata('msg')=='success'):?>
+            <?php if($this->session->flashdata('msg')=='success'):?>
             <script type="text/javascript">
                     $.toast({
                         heading: 'Success',
@@ -76,7 +48,7 @@
                         hideDuration: "1000"
                     });
             </script>
-        <?php elseif($this->session->flashdata('msg')=='info'):?>
+            <?php elseif($this->session->flashdata('msg')=='info'):?>
             <script type="text/javascript">
                     $.toast({
                         heading: 'Info',
@@ -90,7 +62,7 @@
                         hideDuration: "1000"
                     });
             </script>
-        <?php elseif($this->session->flashdata('msg')=='success-delete'):?>
+            <?php elseif($this->session->flashdata('msg')=='success-delete'):?>
             <script type="text/javascript">
                     $.toast({
                         heading: 'Success',
@@ -104,7 +76,7 @@
                         hideDuration: "1000"
                     });
             </script>
-        <?php elseif($this->session->flashdata('msg')=='success-edit'):?>
+            <?php elseif($this->session->flashdata('msg')=='success-edit'):?>
             <script type="text/javascript">
                     $.toast({
                         heading: 'Success',
@@ -118,11 +90,11 @@
                         hideDuration: "1000"
                     });
             </script>
-        <?php elseif($this->session->flashdata('msg')=='success-publish'):?>
+            <?php elseif($this->session->flashdata('msg')=='success-validation'):?>
             <script type="text/javascript">
                     $.toast({
                         heading: 'Success',
-                        text: "Comment Published!.",
+                        text: "Data Validated!.",
                         showHideTransition: 'slide',
                         icon: 'success',
                         position: 'bottom-right',

@@ -43,13 +43,14 @@ class Reserv extends CI_Controller {
     }
 
     function submit_reservation(){
+        $reserv_id=$this->input->post('reserv_id',TRUE);
 		$this->load->library('form_validation');
 
         $this->form_validation->set_rules('sekolah', 'Sekolah', 'required|min_length[3]|max_length[40]|htmlspecialchars');
         $this->form_validation->set_rules('penanggung_jwb', 'Age', 'required');
-        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
         $this->form_validation->set_rules('telp', 'Telp', 'required');
-        $this->form_validation->set_rules('email', 'Email', 'required');
+        $this->form_validation->set_rules('alamat', 'Alamat', 'required');
+        $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
         $this->form_validation->set_rules('jml_peserta', 'Jml_peserta', 'required');
         $this->form_validation->set_rules('catatan', 'Catatan');
 		if ($this->form_validation->run() == FALSE){
@@ -57,15 +58,13 @@ class Reserv extends CI_Controller {
 			redirect('index.php/reserv');
 		}else{
 
-            $reserv_id=$this->input->post('reserv_id',TRUE);
 			$sekolah=$this->input->post('sekolah',TRUE);
             $penanggung_jwb=$this->input->post('penanggung_jwb',TRUE);
-            $alamat=$this->input->post('alamat',TRUE);
             $telp=$this->input->post('telp',TRUE);
+            $alamat=$this->input->post('alamat',TRUE);
             $email=$this->input->post('email',TRUE);
             $jml_peserta=$this->input->post('jml_peserta',TRUE);
 			$catatan=strip_tags(htmlspecialchars($this->input->post('catatan',TRUE),ENT_QUOTES));
-            
 
         $config['upload_path'] = 'upload/reservation'; //path folder
 	    $config['allowed_types'] = 'pdf|doc|docx'; //type file
@@ -74,11 +73,13 @@ class Reserv extends CI_Controller {
 
         $this->upload->initialize($config);
 
-	        if ($this->upload->do_upload('surat_rekomendasi')){
+	        if ($this->upload->do_upload('dokumen')){
 
-                    $surat_rekomendasi = $this->upload->data();
+                    $berkas = $this->upload->data();
+                    $surat_rekomendasi=$berkas['file_name'];	
 
-					$this->reserv_model->save_reservation($reserv_id,$sekolah,$penanggung_jwb,$surat_rekomendasi,$alamat,$telp,$email,$jml_peserta,$catatan);
+                    $this->reserv_model->save_reservation($reserv_id,$sekolah,$penanggung_jwb,$surat_rekomendasi,$telp,$alamat,$email,$jml_peserta,$catatan);
+                    $this->session->set_flashdata('msg','<div class="alert alert-info">Terima kasih atas kerjasama Anda, booking Anda akan kami proses, kami kabari via email</div>');
 					redirect('index.php/reserv');
 				}else{
 		            echo $this->session->set_flashdata('msg','<div class="alert alert-danger">Mohon masukkan format file yang sesuai!</div>');
