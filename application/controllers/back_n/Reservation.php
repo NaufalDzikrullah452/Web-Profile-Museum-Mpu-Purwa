@@ -8,6 +8,7 @@ class Reservation extends CI_Controller{
         };
 		$this->load->model('back_n/Reservation_model','reservation_model');
 		$this->load->library('upload');
+		$this->load->library('email');
 		$this->load->helper('text');
 	}
 
@@ -59,92 +60,44 @@ class Reservation extends CI_Controller{
 	}
 
 	function update(){
-		$userid=$this->input->post('user_id',TRUE);
-		$nama=htmlspecialchars($this->input->post('nama',TRUE),ENT_QUOTES);
-		$email=htmlspecialchars($this->input->post('email',TRUE),ENT_QUOTES);
-		$pass=htmlspecialchars($this->input->post('password',TRUE),ENT_QUOTES);
-		$pass2=htmlspecialchars($this->input->post('password2',TRUE),ENT_QUOTES);
-		$level=htmlspecialchars($this->input->post('level',TRUE),ENT_QUOTES);
+
+		$reserv_id=$this->input->post('reserv_id',TRUE);
+		$sekolah=$this->input->post('sekolah',TRUE);
+        $penanggung_jwb=$this->input->post('penanggung_jwb',TRUE);
+        $telp=$this->input->post('telp',TRUE);
+        $alamat=$this->input->post('alamat',TRUE);
+	    $email=$this->input->post('email',TRUE);
+        $jml_peserta=$this->input->post('jml_peserta',TRUE);
+		$catatan=strip_tags(htmlspecialchars($this->input->post('catatan',TRUE),ENT_QUOTES));
 		
-		$config['upload_path'] = 'upload/user'; //path folder
-	    $config['allowed_types'] = 'gif|jpg|png|jpeg|bmp'; //type yang dapat diakses bisa anda sesuaikan
-	    $config['encrypt_name'] = TRUE; //nama yang terupload nantinya
+		$config['upload_path'] = 'upload/reservation'; //path folder
+	    $config['allowed_types'] = 'pdf|doc|docx'; //type file
+        $config['encrypt_name'] = TRUE; //enskripsi nama file
+        $config['max_size'] = 10000; //Max size file
 	    
 	    $this->upload->initialize($config);
-	    
-	    if(empty($pass) || empty($pass2)){
-	    	if(!empty($_FILES['filefoto']['name'])){
-		        if ($this->upload->do_upload('filefoto')){
-		            $gbr = $this->upload->data();
-	                //Compress Image
-	                $config['image_library']='gd2';
-	                $config['source_image']='upload/user/'.$gbr['file_name'];
-	                $config['create_thumb']= FALSE;
-	                $config['maintain_ratio']= FALSE;
-	                $config['quality']= '80%';
-	                $config['width']= 100;
-	                $config['height']= 100;
-	                $config['new_image']= 'upload/user/'.$gbr['file_name'];
-	                $this->load->library('image_lib', $config);
-	                $this->image_lib->resize();
+	    if(!empty($_FILES['surat_rekomendasi']['name'])){
+            if ($this->upload->do_upload('surat_rekomendasi')){
 
-		            $gambar=$gbr['file_name'];		
-					$this->users_model->update_user_nopass($userid,$nama,$email,$level,$gambar);
-					echo $this->session->set_flashdata('msg','info');
-					redirect('index.php/back_n/users');
-				}else{
-		            echo $this->session->set_flashdata('msg','error-img');
-		            redirect('index.php/back_n/users');
-		    	}
-		                 
-		    }else{
-				$this->users_model->update_user_nopassimg($userid,$nama,$email,$level);
-				echo $this->session->set_flashdata('msg','info');
-				redirect('index.php/back_n/users');
-			}
+	            $berkas = $this->upload->data();
+				$file=$berkas['file_name'];
+				
+	        }
+	        $this->reservation_model->update_reservation($reserv_id,$sekolah,$penanggung_jwb,$file,$telp,$alamat,$email,$jml_peserta,$catatan);
+	        $this->session->set_flashdata('msg','success-edit');
+	        redirect('index.php/back_n/reservation');
+
 	    }else{
-	    	if($pass == $pass2){
-		    	if(!empty($_FILES['filefoto']['name'])){
-			        if ($this->upload->do_upload('filefoto')){
-			            $gbr = $this->upload->data();
-		                //Compress Image
-		                $config['image_library']='gd2';
-		                $config['source_image']='upload/user/'.$gbr['file_name'];
-		                $config['create_thumb']= FALSE;
-		                $config['maintain_ratio']= FALSE;
-		                $config['quality']= '80%';
-		                $config['width']= 100;
-		                $config['height']= 100;
-		                $config['new_image']= 'upload/user/'.$gbr['file_name'];
-		                $this->load->library('image_lib', $config);
-		                $this->image_lib->resize();
-
-			            $gambar=$gbr['file_name'];		
-						$this->users_model->update_user($userid,$nama,$email,$pass,$level,$gambar);
-						echo $this->session->set_flashdata('msg','info');
-						redirect('index.php/back_n/users');
-					}else{
-			            echo $this->session->set_flashdata('msg','error-img');
-			            redirect('index.php/back_n/users');
-			    	}
-			                 
-			    }else{
-					$this->users_model->update_user_noimg($userid,$nama,$email,$pass,$level);
-					echo $this->session->set_flashdata('msg','info');
-					redirect('index.php/back_n/users');
-				}
-		    }else{
-		    	echo $this->session->set_flashdata('msg','error');
-				redirect('index.php/back_n/users');
-		    }
+	    	$this->reservation_model->update_reservation_nofile($reserv_id,$sekolah,$penanggung_jwb,$telp,$alamat,$email,$jml_peserta,$catatan);
+	        $this->session->set_flashdata('msg','success-edit');
+	        redirect('index.php/back_n/reservation');
 	    }
-
 	}
 
 	function validation(){
 		$reserv_id = $this->input->post('reserv_id2',TRUE);
 		$this->reservation_model->validation_reservation($reserv_id);
-		$this->session->set_flashdata('msg','success-validation');
+		$this->session->set_flashdata('msg','info');
 		redirect('index.php/back_n/reservation');
 	}
 
@@ -154,6 +107,53 @@ class Reservation extends CI_Controller{
 		force_download('upload/reservation/'.$data->reserv_file,NULL);
 		echo $this->session->set_flashdata('msg','success-download');
 	}
+
+	function send(){
+        // Load PHPMailer library
+        $this->load->library('phpmailer_lib');
+        
+        // PHPMailer object
+        $mail = $this->phpmailer_lib->load();
+        
+        // SMTP configuration
+        $mail->isSMTP();
+        $mail->Host     = 'smtp.gmail.com';
+        $mail->SMTPAuth = true;
+        $mail->Username = 'naufal.dzikrullah452@gmail.com';
+        $mail->Password = 'anonymous452';
+        $mail->SMTPSecure = 'ssl';
+        $mail->Port     = 465;
+        
+        $mail->setFrom('naufal.dzikrullah452@gmail.com', 'Naufal');
+        $mail->addReplyTo('info@example.com', 'CodexWorld');
+        
+        // Add a recipient
+        $mail->addAddress('naufal.dzikrullah978@gmail.com');
+        
+        // // Add cc or bcc 
+        // $mail->addCC('cc@example.com');
+        // $mail->addBCC('bcc@example.com');
+        
+        // Email subject
+        $mail->Subject = 'Send Email via SMTP using PHPMailer in CodeIgniter';
+        
+        // Set email format to HTML
+        $mail->isHTML(true);
+        
+        // Email body content
+        $mailContent = "<h1>Send HTML Email using SMTP in CodeIgniter</h1>
+            <p>This is a test email sending using SMTP mail server with PHPMailer.</p>";
+        $mail->Body = $mailContent;
+        
+        // Send email
+        if(!$mail->send()){
+            echo $this->session->set_flashdata('msg','error-sent');
+			redirect('index.php/back_n/reservation');
+        }else{
+			echo $this->session->set_flashdata('msg','success-sent');
+			redirect('index.php/back_n/reservation');
+        }
+    }
 
 	function delete(){
 		$reserv_id = $this->input->post('kode',TRUE);

@@ -79,7 +79,7 @@ class Reserv extends CI_Controller {
                     $surat_rekomendasi=$berkas['file_name'];	
 
                     $this->reserv_model->save_reservation($reserv_id,$sekolah,$penanggung_jwb,$surat_rekomendasi,$telp,$alamat,$email,$jml_peserta,$catatan);
-                    $this->session->set_flashdata('msg','<div class="alert alert-info">Terima kasih atas kerjasama Anda, booking Anda akan kami proses, kami kabari via email</div>');
+                    $this->session->set_flashdata('msg','<div class="alert alert-info">Terima kasih atas kerjasama Anda, booking Anda akan kami proses,akan kami kabari via email</div>');
 					redirect('index.php/reserv');
 				}else{
 		            echo $this->session->set_flashdata('msg','<div class="alert alert-danger">Mohon masukkan format file yang sesuai!</div>');

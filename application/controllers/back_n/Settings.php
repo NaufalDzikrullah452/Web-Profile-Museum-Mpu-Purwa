@@ -39,6 +39,7 @@ class Settings extends CI_Controller{
 	}
 
 	function update(){
+		
 		$site_id = htmlspecialchars($this->input->post('site_id',TRUE),ENT_QUOTES);
 		$site_name = htmlspecialchars($this->input->post('name',TRUE),ENT_QUOTES);
 		$site_title = htmlspecialchars($this->input->post('title',TRUE),ENT_QUOTES);

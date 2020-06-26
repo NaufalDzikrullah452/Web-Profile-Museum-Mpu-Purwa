@@ -70,8 +70,9 @@
                                                 <h5> <?php echo $telp;?></h5>
                                                 <h5><?php echo $email;?></h5>
                                                 <br><br>
+                                                <h6>Jumlah Peserta Studi Grup:   &nbsp;&nbsp;<?php echo $jml_peserta;?> Orang</h6>
+                                                <br>
                                                 <h6>Penanggung Jawab: &nbsp;&nbsp;<?php echo $penanggung_jwb;?> </h6>
-                                                <h6>Jumlah Peserta:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<?php echo $jml_peserta;?> Orang</h6>
                                                 <br><br><br><br>
                                                 <h6>Surat Rekomendasi:  <a href="<?php echo site_url('index.php/back_n/reservation/download/'.$id);?>">Download file <i class="fa fa-download"></i></a></h6>  
                                                 

@@ -2,23 +2,6 @@
             $(document).ready(function(){
                 $('#mytable').DataTable();
 
-                $('.btn-reply').on('click',function(){
-                    var comm_id=$(this).data('comment_id');
-                    var post_id=$(this).data('post_id');
-                    $('#ReplyModal').modal('show');
-                    $('[name="comment_id"]').val(comm_id);
-                    $('[name="post_id"]').val(post_id);
-                });
-
-                $('.btn-edit').on('click',function(){
-                    var comm_id=$(this).data('comment_id');
-                    var msg =$(this).data('comment_msg');
-                    $('#EditModal').modal('show');
-                    $('[name="comment_id2"]').val(comm_id);
-                    $('.comment').val(msg);
-                    $('.comment').code(msg);
-                });
-
                 $('.delete').on('click',function(){
                     var reserv_id=$(this).data('reserv_id');
                     $('#ModalDelete').modal('show');
@@ -34,25 +17,11 @@
             });
         </script>
         <!--Toast Message-->
-            <?php if($this->session->flashdata('msg')=='success'):?>
-            <script type="text/javascript">
-                    $.toast({
-                        heading: 'Success',
-                        text: "Order Confirmed",
-                        showHideTransition: 'slide',
-                        icon: 'success',
-                        position: 'bottom-right',
-                        bgColor: '#7EC857',
-                        onclick: null,
-                        showDuration: "300",
-                        hideDuration: "1000"
-                    });
-            </script>
-            <?php elseif($this->session->flashdata('msg')=='info'):?>
+            <?php if($this->session->flashdata('msg')=='info'):?>
             <script type="text/javascript">
                     $.toast({
                         heading: 'Info',
-                        text: "Order Status Change",
+                        text: "Data Status Change",
                         showHideTransition: 'slide',
                         icon: 'info',
                         position: 'bottom-right',
@@ -66,7 +35,7 @@
             <script type="text/javascript">
                     $.toast({
                         heading: 'Success',
-                        text: "Order Deleted!.",
+                        text: "Data Deleted!.",
                         showHideTransition: 'slide',
                         icon: 'success',
                         position: 'bottom-right',
@@ -80,7 +49,7 @@
             <script type="text/javascript">
                     $.toast({
                         heading: 'Success',
-                        text: "Comment Updated!.",
+                        text: "Data Updated!.",
                         showHideTransition: 'slide',
                         icon: 'success',
                         position: 'bottom-right',
@@ -90,11 +59,11 @@
                         hideDuration: "1000"
                     });
             </script>
-            <?php elseif($this->session->flashdata('msg')=='success-validation'):?>
+            <?php elseif($this->session->flashdata('msg')=='success-sent'):?>
             <script type="text/javascript">
                     $.toast({
                         heading: 'Success',
-                        text: "Data Validated!.",
+                        text: "Email sent.",
                         showHideTransition: 'slide',
                         icon: 'success',
                         position: 'bottom-right',
@@ -104,15 +73,15 @@
                         hideDuration: "1000"
                     });
             </script>
-            <?php elseif($this->session->flashdata('msg')=='success-change'):?>
+            <?php elseif($this->session->flashdata('msg')=='error-sent'):?>
             <script type="text/javascript">
                     $.toast({
-                        heading: 'Success',
-                        text: "Image Changed!.",
+                        heading: 'Failed',
+                        text: "Message could not be sent.",
                         showHideTransition: 'slide',
-                        icon: 'success',
+                        icon: 'danger',
                         position: 'bottom-right',
-                        bgColor: '#7EC857',
+                        bgColor: '#e74c3c',
                         onclick: null,
                         showDuration: "300",
                         hideDuration: "1000"

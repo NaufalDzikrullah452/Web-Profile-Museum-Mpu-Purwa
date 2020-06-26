@@ -3,10 +3,10 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">List Booking</h4>
+                            <h4 class="page-title pull-left">Booking Valid</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="index.html">Dashboard</a></li>
-                                <li><span>List Booking</span></li>
+                                <li><span>Booking Valid</span></li>
                             </ul>
                         </div>
                     </div>
@@ -81,7 +81,6 @@
                                                         </button>
                                                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                                                     <a class="dropdown-item edit" href="javascript:void(0);" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
-                                                    <a class="dropdown-item validation" href="javascript:void(0);" data-toggle="modal" data-target="#ModalValid<?php echo $row->reserv_id;?>"><i class="fa fa-check"></i> Validasi</a>
                                                     <a class="dropdown-item" href="<?php echo site_url('index.php/back_n/reservation/detail/'.$row->reserv_id);?>"><i class="fa fa-external-link"></i> Detail</a>
                                                     <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" ><i class="fa fa-mail-reply"></i> Balas</a>
                                                     <a class="dropdown-item delete" href="javascript:void(0);"  data-userid="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
@@ -111,7 +110,6 @@
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-right" role="menu">
                                                             <a class="dropdown-item edit" href="javascript:void(0);" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
-                                                            <a class="dropdown-item validation" href="javascript:void(0);" data-toggle="modal" data-target="#ModalValid<?php echo $row->reserv_id;?>"><i class="fa fa-check"></i> Validasi</a>
                                                             <a class="dropdown-item" href="<?php echo site_url('index.php/back_n/reservation/detail/'.$row->reserv_id);?>"><i class="fa fa-external-link"></i> Detail</a>
                                                             <a class="dropdown-item" href="javascript:void(0);" data-toggle="modal" ><i class="fa fa-mail-reply"></i> Balas</a>
                                                             <a class="dropdown-item delete" href="javascript:void(0);"  data-userid="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
@@ -134,38 +132,61 @@
                                     foreach ($data->result() as $row):
                                 ?>
                                 <form  action="<?php echo base_url().'index.php/back_n/reservation/update'?>" method="post" enctype="multipart/form-data">
-                                <div class="modal fade" id="ModalEdit<?php echo $row->user_id;?>">
-                                    <div class="modal-dialog">
+                                <div class="modal fade" data-backdrop="static" id="ModalEdit<?php echo $row->reserv_id;?>">
+                                    <div class="modal-dialog modal-lg">
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title">Edit Data</h5>
-                                                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                             </div>
                                     <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-md-4">
                                                 <div class="form-group">
-                                                        <input type="file" name="filefoto" class="dropify" data-height="200" data-default-file="<?php echo base_url().'upload/user/'.$row->user_photo;?>">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <div class="form-group">
-                                                    <input type="text" name="nama" value="<?php echo $row->user_name;?>" class="form-control" placeholder="Name" required>
+                                                <label class="col-form-label">Nama Sekolah :</label>
+                                                    <input type="text" name="sekolah" value="<?php echo $row->reserv_nama_sekolah;?>" class="form-control" placeholder="nama sekolah" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="email" name="email" value="<?php echo $row->user_email;?>" class="form-control" placeholder="Email" required>
+                                                <label class="col-form-label">Nama Penanggung Jawab:</label>
+                                                    <input type="text" name="penanggung_jwb" value="<?php echo $row->reserv_penanggung_jwb;?>" class="form-control" placeholder="nama penanggung jawab" required>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="password" name="password" class="form-control" placeholder="Password">
+                                                <label class="col-form-label">Surat Rekomendasi :
+                                                <div class="input-group mb-3">    
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">Upload File</span>
+                                                </div>
+                                                <div class="custom-file">
+                                                    <input type="file" class="custom-file-input rename" name="surat_rekomendasi" id="berkas">
+                                                    <label class="custom-file-label" for="berkas" ></label>
+                                                </div>
+                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                <div class="form-group col-md-6">
+                                                <label class="col-form-label">No. Telpon Aktif:</label>
+                                                    <input type="text" name="telp" value="<?php echo $row->reserv_telp;?>" class="form-control" placeholder="nomer telpon aktif">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                <label class="col-form-label">Alamat Sekolah:</label>
+                                                    <input type="text" name="alamat" value="<?php echo $row->reserv_alamat;?>" class="form-control" placeholder="alamat sekolah">
+                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                <div class="form-group col-md-6">
+                                                <label class="col-form-label">Email Aktif</label>
+                                                    <input type="text" name="email" value="<?php echo $row->reserv_email;?>" class="form-control" placeholder="email aktif">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                <label class="col-form-label">Jumlah Peserta:</label>
+                                                    <input type="number" name="jml_peserta" value="<?php echo $row->reserv_jml_peserta;?>" class="form-control" placeholder="jumlah peserta">
+                                                </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <input type="password" name="password2" class="form-control" placeholder="Confirm Password">
+                                                <label class="col-form-label">Message:</label>
+                                                <textarea class="form-control" name="catatan" placeholder="catatan"><?php echo $row->reserv_catatan;?></textarea>
                                                 </div>
-                                            </div>
-                                        </div>
-                                 </div>
+                                    </div>
                                             <div class="modal-footer">
-                                                <input type="hidden" name="user_id" value="<?php echo $row->user_id;?>" required>
+                                                <input type="hidden" name="reserv_id" value="<?php echo $row->reserv_id;?>">
                                                 <button type="button" class="btn btn-secondary btn-sm mb-3" data-dismiss="modal">Cancel</button>
                                                 <button type="submit" class="btn btn-success btn-sm mb-3">Update</button>
                                             </div>
@@ -174,55 +195,32 @@
                                 </div>
                              </form>
                               <?php endforeach;?>
-                             <!-- Modal Edit Reserv End -->
-                             <!--Validation MODAL-->
-                            <form action="<?php echo site_url('index.php/back_n/reservation/validation');?>" method="post">
-                                <div class="modal fade" id="ModalValid" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="myModalLabel">Validasi Data</h5>
-                                            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                                        </div>
-                                            <div class="modal-body">
-                                                <div class="alert alert-info">
-                                                    Anda yakin mau memvalidasi data ini?
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <input type="hidden" name="comment_id4" required>
-                                                <button type="button" class="btn btn-default btn-sm mb-3" data-dismiss="modal">Batal</button>
-                                                <button type="submit" class="btn btn-success btn-sm mb-3">Validasi</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <!--Validation MODAL-->           
-                             <!-- Modal hapus-->
+                             <!-- Modal Edit Reserv End -->         
+                            <!-- Modal hapus-->
                             <form  action="<?php echo base_url().'index.php/back_n/reservation/delete'?>" method="post" enctype="multipart/form-data">
                                 <div class="modal fade" id="ModalDelete">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Delete User</h5>
+                                                <h5 class="modal-title">Hapus Reservasi</h5>
                                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                                             </div>
                                         <div class="modal-body">
-                                            <strong>Anda yakin mau menghapus user ini?</strong>
+                                            <strong>Anda yakin mau menghapus data ini?</strong>
                                             <div class="form-group">
-                                                <input type="hidden" id="txt_kode" name="kode" class="form-control" placeholder="Name" required>
+                                                <input type="hidden"  name="kode" class="form-control"  required>
                                             </div>
                                         </div>
 
                                             <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary btn-sm mb-3" data-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-danger btn-sm mb-3">Delete</button>
+                                                <button type="button" class="btn btn-secondary btn-sm mb-3" data-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-danger btn-sm mb-3">Hapus</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                              </form>
+                            <!-- Modal hapus-->
 
                 </div>
             </div>
