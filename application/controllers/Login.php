@@ -33,7 +33,7 @@ class Login extends CI_Controller{
             	$name=$x['user_name'];
             	$this->session->set_userdata('id',$id);
             	$this->session->set_userdata('name',$name);
-            	redirect('index.php/back_n/Dashboard');
+            	redirect('index.php/back_n/author/Dashboard_author');
          	}	
 
         }else{

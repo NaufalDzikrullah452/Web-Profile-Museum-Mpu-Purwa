@@ -101,7 +101,7 @@
                     <div class="col-12 col-md-6">
                         <div class="copywrite-text">
                             <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Museum Mpu Purwa | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib X DZIK</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
                         </div>
@@ -111,11 +111,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         <div class="footer-nav">
                             <nav>
                                 <ul>
-                                    <li><a href="<?php echo base_url();?>">Beranda</a></li>
-                                    <li><a href="<?php echo base_url();?>about">Tentang Kami</a></li>
-                                    <li><a href="<?php echo base_url();?>collection">Koleksi</a></li>
-                                    <li><a href="<?php echo base_url();?>Reservation">Reservasi</a></li>
-                                    <li><a href="<?php echo base_url();?>kontak">Kontak</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php">Beranda</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/about">Tentang Kami</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/collect">Koleksi</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/reserv">Reservasi</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/kontak">Kontak</a></li>
                                 </ul>
                             </nav>
                         </div>

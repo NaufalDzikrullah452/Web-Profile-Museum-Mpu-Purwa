@@ -82,7 +82,7 @@
                                                 <div class="dropdown-menu dropdown-menu-right" role="menu">
                                                     <a class="dropdown-item edit" href="javascript:void(0);" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
                                                     <a class="dropdown-item" href="<?php echo site_url('index.php/back_n/reservation/detail/'.$row->reserv_id);?>"><i class="fa fa-external-link"></i> Detail</a>
-                                                    a class="dropdown-item" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" data-target="#ModalSend<?php echo $row->reserv_id;?>" ><i class="fa fa-mail-reply"></i> Kirim Email</a>
+                                                    <a class="dropdown-item" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" data-target="#ModalSend<?php echo $row->reserv_id;?>" ><i class="fa fa-mail-reply"></i> Kirim Email</a>
                                                     <a class="dropdown-item delete" href="javascript:void(0);"  data-userid="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
                                                 </div>
                                                     </div>
@@ -111,7 +111,7 @@
                                                         <div class="dropdown-menu dropdown-menu-right" role="menu">
                                                             <a class="dropdown-item edit" href="javascript:void(0);" data-toggle="modal" data-target="#ModalEdit<?php echo $row->reserv_id;?>"><i class="fa fa-edit"></i> Edit</a>
                                                             <a class="dropdown-item" href="<?php echo site_url('index.php/back_n/reservation/detail/'.$row->reserv_id);?>"><i class="fa fa-external-link"></i> Detail</a>
-                                                            a class="dropdown-item" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" data-target="#ModalSend<?php echo $row->reserv_id;?>" ><i class="fa fa-mail-reply"></i> Kirim Email</a>
+                                                            <a class="dropdown-item" href="javascript:void(0);" data-reserv_id="<?php echo $row->reserv_id;?>" data-toggle="modal" data-target="#ModalSend<?php echo $row->reserv_id;?>" ><i class="fa fa-mail-reply"></i> Kirim Email</a>
                                                             <a class="dropdown-item delete" href="javascript:void(0);"  data-userid="<?php echo $row->reserv_id;?>"><i class="fa fa-trash"></i> Delete</a>
                                                 </div>
                                                     </div>

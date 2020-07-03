@@ -19,7 +19,7 @@ class Reservation extends CI_Controller{
 		$this->load->view('partials/back_n/sidebar');
 		$this->load->view('layout/back_n/v_reservation');
 		$this->load->view('partials/back_n/footer');
-        $this->load->view('partials/back_n/js/js_reservation');
+    $this->load->view('partials/back_n/js/js_reservation');
 	}
 
 	function confirmed(){
@@ -112,11 +112,12 @@ class Reservation extends CI_Controller{
 	{
 		$reserv_id=$this->input->post('reserv_id4',TRUE);
 		$sekolah=$this->input->post('sekolah',TRUE);
-        $penanggung_jwb=$this->input->post('penanggung_jwb',TRUE);
-        $telp=$this->input->post('telp',TRUE);
-        $alamat=$this->input->post('alamat',TRUE);
-	    $email=$this->input->post('email',TRUE);
-        $jml_peserta=$this->input->post('jml_peserta',TRUE);
+    $penanggung_jwb=$this->input->post('penanggung_jwb',TRUE);
+    $telp=$this->input->post('telp',TRUE);
+    $alamat=$this->input->post('alamat',TRUE);
+	  $email=$this->input->post('email',TRUE);
+    $jml_peserta=$this->input->post('jml_peserta',TRUE);
+    
         // Load PHPMailer library
         $this->load->library('phpmailer_lib');
         
@@ -133,7 +134,7 @@ class Reservation extends CI_Controller{
         $mail->Port     = 465;
         
         $mail->setFrom('naufal.dzikrullah978@gmail.com', 'Museum Mpu Purwa');
-		$mail->addReplyTo('no-replymuseum@example.com', 'Museum Mpu Purwa');
+		    $mail->addReplyTo('no-replymuseum@example.com', 'Museum Mpu Purwa');
 		
 		$subjek = $this->input->post('subjek');
 		$penerima = $this->input->post('email');
@@ -143,7 +144,6 @@ class Reservation extends CI_Controller{
 		$jml_peserta = $this->input->post('jml_peserta');
 		$tgl = $this->input->post('tgl');
 		$alamat = $this->input->post('alamat');
-		$subject = $this->input->post('subjek');
         
         // Add a recipient
         $mail->addAddress($penerima);

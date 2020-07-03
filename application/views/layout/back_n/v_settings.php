@@ -80,7 +80,7 @@
                                             <label>Shortcut Icon</label>
                                                 <input type="file" name="shortcut_icon" class="form-control" >
                                                 <p class="help-block">Gambar harus beresolusi 512 x 512 Pixels dan format png.</p>
-                                                <img src="<?php echo base_url().'upload/images/'.$site_shortcut_icon;?>"  width="50px" height="50px" class="thumbnail">
+                                                <img src="<?php echo base_url().'upload/images/'.$site_shortcut_icon;?>"  width="50px" height="50px" style="border: 1px solid #808080; padding: 5px;">
                                         </div>
 
                                         <div class="form-group">
@@ -88,14 +88,14 @@
                                             
                                                 <input type="file" name="logo_header" class="form-control" >
                                                 <p class="help-block">Logo harus beresolusi 183 x 59 Pixels.</p>
-                                                <img src="<?php echo base_url().'upload/images/'.$site_logo_header;?>" class="thumbnail">
+                                                <img src="<?php echo base_url().'upload/images/'.$site_logo_header;?>" style="border: 1px solid #808080; padding: 5px;">
                                         </div>
 
                                         <div class="form-group">
                                             <label>Logo Footer</label>
                                                 <input type="file" name="logo_footer" class="form-control" >
                                                 <p class="help-block">Logo harus beresolusi 183 x 59 Pixels.</p>
-                                                <img src="<?php echo base_url().'upload/images/'.$site_logo_footer;?>" class="thumbnail"></div>
+                                                <img src="<?php echo base_url().'upload/images/'.$site_logo_footer;?>" style="border: 1px solid #808080; padding: 5px;"></div>
                                         </div>
                                
                             </div>

@@ -2,7 +2,7 @@
     $(document).ready(function(){
         tampil_data_visitor();   //pemanggilan fungsi tampil Visitor.
          
-        $('#data-table').dataTable({ 
+        $('#1').dataTable({ 
  
         "processing": true, //Feature control the processing indicator.
         "searchable": false,
@@ -32,9 +32,19 @@
                                 '<td>'+data[i].visit_umum+'</td>'+
                                 '<td>'+data[i].visit_pelajar+'</td>'+
                                 '<td>'+data[i].visit_asing+'</td>'+
-                                '<td style="text-align: center;">'+
-                                    '<a href="javascript:;" class="btn btn-secondary btn-xs item_edit" data="'+data[i].visit_museum_id+'"><span class="fa fa-pencil"></span></a>'+' '+
-                                    '<a href="javascript:;" class="btn btn-danger btn-xs item_delete" data="'+data[i].visit_museum_id+'"><span class="fa fa-trash"></span></a>'+
+                                '<td>'+data[i].Total+'</td>'+
+                                '<td style="vertical-align: middle;">'+
+                                '<div class="btn-group">'+''+
+                                    '<button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">Action <span class="caret"></span></button>'+''+
+                                    '<div class="dropdown-menu dropdown-menu-right" role="menu">'+''+
+                                        '<a class="dropdown-item pdf" href="javascript:void(0);" data="'+data[i].visit_museum_id+'"><i class="fa fa-file-pdf-o"></i> Laporan</a>'+''+
+                                        '<a class="dropdown-item item_edit" href="javascript:void(0);" data="'+data[i].visit_museum_id+'"><i class="fa fa-edit"></i> Edit</a>'+''+
+                                        '<a class="dropdown-item item_delete" href="javascript:void(0);" data="'+data[i].visit_museum_id+'"><i class="fa fa-trash"></i> Hapus</a>'+''+
+                                    '</div>'+''+
+                                                '</div>'+
+                                    // '<a href="javascript:;" class="btn btn-primary btn-xs item_edit" data="'+data[i].visit_museum_id+'"><span class="fa fa-print"></span></a>&nbsp;'+''+
+                                    // '<a href="javascript:;" class="btn btn-secondary btn-xs item_edit" data="'+data[i].visit_museum_id+'"><span class="fa fa-pencil"></span></a>'+' '+
+                                    // '<a href="javascript:;" class="btn btn-danger btn-xs item_delete" data="'+data[i].visit_museum_id+'"><span class="fa fa-trash"></span></a>'+
                                 '</td>'+
                                 '</tr>';
                     }
@@ -63,6 +73,31 @@
                         $('[name="pelajar_edit"]').val(data.visit_pelajar);
                         $('[name="asing_edit"]').val(data.visit_asing);
                         $('[name="keterangan_edit"]').val(data.visit_note);
+                    });
+                }
+            });
+            return false;
+        });
+
+         //GET Visitor data
+        $('#show_data').on('click','.pdf',function(){
+            var id=$(this).attr('data');
+            $.ajax({
+                type : "GET",
+                url  : "<?php echo base_url('index.php/back_n/visitors_museum/get_visitor2')?>",
+                dataType : "JSON",
+                data : {id:id},
+                success: function(data){
+                    $.each(data,function(visit_museum_id, visit_month_id, visit_year, visit_dinas, visit_umum, visit_pelajar, visit_asing, Total){
+                        $('#LaporanModal').modal('show');
+                        $('[name="visit_id"]').val(data.visit_museum_id);
+                        $('[name="bulan"]').val(data.visit_month_id);
+                        $('[name="tahun"]').val(data.visit_year);
+                        $('[name="dinas"]').val(data.visit_dinas);
+                        $('[name="umum"]').val(data.visit_umum);
+                        $('[name="pelajar"]').val(data.visit_pelajar);
+                        $('[name="asing"]').val(data.visit_asing);
+                        $('[name="total"]').val(data.Total);
                     });
                 }
             });
