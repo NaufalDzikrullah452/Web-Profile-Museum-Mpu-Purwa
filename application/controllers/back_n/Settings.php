@@ -22,6 +22,7 @@ class Settings extends CI_Controller{
 		$data['site_description'] = $result['site_description'];
 		$data['site_maps'] = $result['site_maps'];
 		$data['site_street_views'] = $result['site_street_views'];
+		$data['site_url_video'] = $result['site_url_video'];
         $data['site_shortcut_icon'] = $result['site_shortcut_icon'];
 		$data['site_logo_header'] = $result['site_logo_header'];
 		$data['site_logo_footer'] = $result['site_logo_footer'];
@@ -46,6 +47,7 @@ class Settings extends CI_Controller{
 		$site_description = htmlspecialchars($this->input->post('description',TRUE),ENT_QUOTES);
 		$maps = $this->input->post('maps',TRUE);
 		$street_views = $this->input->post('street_views',TRUE);
+		$url_video = $this->input->post('url_video',TRUE);
 		$address = htmlspecialchars($this->input->post('address',TRUE),ENT_QUOTES);
 		$telephone = htmlspecialchars($this->input->post('telephone',TRUE),ENT_QUOTES);
 		$email = htmlspecialchars($this->input->post('email',TRUE),ENT_QUOTES);
@@ -71,7 +73,7 @@ class Settings extends CI_Controller{
 	            $img_footer = $this->upload->data();
 	            $logo_footer=$img_footer['file_name'];
             }
-	        $this->site_model->update_information($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$shortcut_icon,$logo_header,$logo_footer,$address,$telephone,$email,$facebook,$twitter,$instagram);
+	        $this->site_model->update_information($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$url_video,$shortcut_icon,$logo_header,$logo_footer,$address,$telephone,$email,$facebook,$twitter,$instagram);
 	        $this->session->set_flashdata('msg','success');
 	        redirect('index.php/back_n/settings');
 
@@ -80,7 +82,7 @@ class Settings extends CI_Controller{
 	            $img_icon = $this->upload->data();
 	            $shortcut_icon=$img_footer['file_name'];
 	        }
-	        $this->site_model->update_information_icon($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$shortcut_icon,$address,$telephone,$email,$facebook,$twitter,$instagram);
+	        $this->site_model->update_information_icon($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$url_video,$shortcut_icon,$address,$telephone,$email,$facebook,$twitter,$instagram);
 	        $this->session->set_flashdata('msg','success');
             redirect('index.php/back_n/settings');
             
@@ -89,7 +91,7 @@ class Settings extends CI_Controller{
 	            $img_header = $this->upload->data();
 	            $logo_header=$img_header['file_name'];
 	        }
-	        $this->site_model->update_information_header($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$logo_header,$address,$telephone,$email,$facebook,$twitter,$instagram);
+	        $this->site_model->update_information_header($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$url_video,$logo_header,$address,$telephone,$email,$facebook,$twitter,$instagram);
 	        $this->session->set_flashdata('msg','success');
 	        redirect('index.php/back_n/settings');    
 
@@ -98,12 +100,12 @@ class Settings extends CI_Controller{
 	            $img_footer = $this->upload->data();
 	            $logo_footer=$img_footer['file_name'];
 	        }
-	        $this->site_model->update_information_footer($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$logo_footer,$address,$telephone,$email,$facebook,$twitter,$instagram);
+	        $this->site_model->update_information_footer($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$url_video,$logo_footer,$address,$telephone,$email,$facebook,$twitter,$instagram);
 	        $this->session->set_flashdata('msg','success');
 	        redirect('index.php/back_n/settings');
         
 	    }else{
-	    	$this->site_model->update_information_nologo($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$address,$telephone,$email,$facebook,$twitter,$instagram);
+	    	$this->site_model->update_information_nologo($site_id,$site_name,$site_title,$site_description,$maps,$street_views,$url_video,$address,$telephone,$email,$facebook,$twitter,$instagram);
 	        $this->session->set_flashdata('msg','success');
 	        redirect('index.php/back_n/settings');
 	    }

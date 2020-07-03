@@ -116,6 +116,11 @@
                                             <label>Konfigurasi Map Street View</label>
                                             <textarea name="street_views" cols="6" rows="6" class="form-control" placeholder="URL map"><?php echo $site_street_views;?></textarea>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label>Konfigurasi URL Video Youtube</label>
+                                            <textarea name="url_video" cols="6" rows="6" class="form-control" placeholder="URL Video"><?php echo $site_url_video;?></textarea>
+                                        </div>
                                                    
                                         <div class="form-group">
                                             <label>Deskripsi Website</label>

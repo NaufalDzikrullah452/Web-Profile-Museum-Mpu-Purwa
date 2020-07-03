@@ -138,10 +138,7 @@
                 </div>
 
                 <div class="col-12 col-lg-6">
-                   
-                        <iframe width="540" height="365"
-                         src="https://www.youtube.com/embed/raPRUCpng1Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                   
+                        <iframe <?php echo $site_url_video;?> ></iframe>
                 </div>
             </div>
         </div>

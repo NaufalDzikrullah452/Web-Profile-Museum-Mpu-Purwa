@@ -130,9 +130,7 @@
                 </div>
 
                 <div class="col-12 col-lg-6">
-                        <iframe width="540" height="365"
-                         src="https://www.youtube.com/embed/92mLlzbRfQA" frameborder="0" allow="accelerometer; autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-                   
+                        <iframe <?php echo $site_url_video;?> ></iframe>
                 </div>
             </div>
         </div>
@@ -180,7 +178,7 @@
                     <!-- Section Heading -->
                     <div class="section-heading text-center">
                         <h2>Pengunjung</h2>
-                        <p>Pengunjung Museum Mpu Purwa Tahun 2020</p>
+                        <p>Pengunjung Museum Mpu Purwa Tahun 2019</p>
                     </div>
                 </div>
            
@@ -197,8 +195,8 @@
                     <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
                         
                         <div class="cf-content">
-                            <h2><span class="counter">118</span></h2>
-                            <h6>Pelajar</h6>
+                            <h2><span class="counter"><?php echo $count_dinas;?></span></h2>
+                            <h6>Dinas</h6>
                         </div>
                     </div>
                 </div>
@@ -208,18 +206,7 @@
                     <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
                         
                         <div class="cf-content">
-                            <h2><span class="counter">70</span></h2>
-                            <h6>Mahasiswa</h6>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Single Cool Facts Area -->
-                <div class="col-12 col-sm-6 col-md">
-                    <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
-                       
-                        <div class="cf-content">
-                            <h2><span class="counter">86</span></h2>
+                            <h2><span class="counter"><?php echo $count_umum;?></span></h2>
                             <h6>Umum</h6>
                         </div>
                     </div>
@@ -228,20 +215,21 @@
                 <!-- Single Cool Facts Area -->
                 <div class="col-12 col-sm-6 col-md">
                     <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
-                        
+                       
                         <div class="cf-content">
-                            <h2><span class="counter">20</span></h2>
-                            <h6>Penelitian</h6>
+                            <h2><span class="counter"><?php echo $count_pelajar;?></span></h2>
+                            <h6>Pelajar</h6>
                         </div>
                     </div>
                 </div>
+
 
                 <!-- Single Cool Facts Area -->
                 <div class="col-12 col-sm-6 col-md">
                     <div class="single-cool-fact d-flex align-items-center justify-content-center mb-100">
                        
                         <div class="cf-content">
-                            <h2><span class="counter">5</span></h2>
+                            <h2><span class="counter"><?php echo $count_asing;?></span></h2>
                             <h6>Asing</h6>
                         </div>
                     </div>

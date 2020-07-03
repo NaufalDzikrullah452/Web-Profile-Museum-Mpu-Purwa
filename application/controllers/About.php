@@ -17,7 +17,8 @@ class About extends CI_Controller {
 		$data['site_title'] = $site['site_title'];
 		$data['site_description'] = $site['site_description'];
 		$data['site_maps'] = $site['site_maps'];
-		$data['site_street_views'] = $site['site_street_views'];
+        $data['site_street_views'] = $site['site_street_views'];
+        $data['site_url_video'] = $site['site_url_video'];
         $data['site_shortcut_icon'] = $site['site_shortcut_icon'];
 		$data['site_logo_header'] = $site['site_logo_header'];
 		$data['site_logo_footer'] = $site['site_logo_footer'];

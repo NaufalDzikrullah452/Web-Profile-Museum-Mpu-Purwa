@@ -64,4 +64,9 @@ class Visitors_museum_model extends CI_Model{
         return $query;  
     }
 
+    function count_visitor_museum(){
+        $query = $this->db->query("SELECT SUM(visit_dinas) as dinas, SUM(visit_umum) as umum, SUM(visit_pelajar) as pelajar, SUM(visit_asing) as asing FROM tbl_visitors_museum");
+        return $query;  
+    }
+
 }
