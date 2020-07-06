@@ -260,7 +260,7 @@
                     <div class="alazea-portfolio-filter">
                         <div class="portfolio-filter">
                             <button class="btn active" data-filter="*">Semua</button>
-                            <button class="btn" data-filter=".reservasi">Reservasi</button>
+                            <button class="btn" data-filter=".reservasi">Ruang Depan</button>
                             <button class="btn" data-filter=".haldep">Halaman Depan</button>
                             <button class="btn" data-filter=".lantai-1">Lantai 1</button>
                             <button class="btn" data-filter=".lantai-2">Lantai 2</button>
@@ -309,7 +309,7 @@
                     <div class="portfolio-hover-overlay">
                         <a href="<?php echo base_url();?>assets/frontend/img/bg-img/reservasi1.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Foto 3">
                             <div class="port-hover-text">
-                                <h3>Ruang Reservasi</h3>
+                                <h3>Ruang Depan</h3>
                                 <h5>Museum Mpu Purwa</h5>
                             </div>
                         </a>
@@ -319,12 +319,12 @@
                   <!-- Single Portfolio Area -->
                 <div class="col-12 col-sm-6 col-lg-3 single_portfolio_item reservasi wow fadeInUp" data-wow-delay="200ms">
                     <!-- Portfolio Thumbnail -->
-                    <div class="portfolio-thumbnail bg-img" style="background-image: url(<?php echo base_url('assets/frontend/img/bg-img/reservasi2.jpg');?>);"></div>
+                    <div class="portfolio-thumbnail bg-img" style="background-image: url(<?php echo base_url('assets/frontend/img/bg-img/m1.jpg');?>);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
-                        <a href="<?php echo base_url();?>assets/frontend/img/bg-img/reservasi2.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Foto 4">
+                        <a href="<?php echo base_url();?>assets/frontend/img/bg-img/m1.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Foto 4">
                             <div class="port-hover-text">
-                                <h3>Ruang Reservasi</h3>
+                                <h3>Ruang Depan</h3>
                                 <h5>Museum Mpu Purwa</h5>
                             </div>
                         </a>
@@ -367,7 +367,7 @@
                     <div class="portfolio-thumbnail bg-img" style="background-image: url(<?php echo base_url('assets/frontend/img/bg-img/haldep2.jpg');?>);"></div>
                     <!-- Portfolio Hover Text -->
                     <div class="portfolio-hover-overlay">
-                        <a href="<?php echo base_url();?>assets/frontend/img/bg-img/haldep.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Foto 7">
+                        <a href="<?php echo base_url();?>assets/frontend/img/bg-img/haldep2.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Foto 7">
                             <div class="port-hover-text">
                                 <h3>Halaman Depan</h3>
                                 <h5>Museum Mpu Purwa</h5>
@@ -429,7 +429,7 @@
                     <div class="portfolio-hover-overlay">
                         <a href="<?php echo base_url();?>assets/frontend/img/bg-img/reservasi3.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Foto 11">
                             <div class="port-hover-text">
-                                <h3>Ruang Reservasi</h3>
+                                <h3>Ruang Depan</h3>
                                 <h5>Museum Mpu Purwa</h5>
                             </div>
                         </a>
@@ -444,7 +444,7 @@
                     <div class="portfolio-hover-overlay">
                         <a href="<?php echo base_url();?>assets/frontend/img/bg-img/reservasi4.jpg" class="portfolio-img d-flex align-items-center justify-content-center" title="Foto 12">
                             <div class="port-hover-text">
-                                <h3>Ruang Reservasi</h3>
+                                <h3>Ruang Depan</h3>
                                 <h5>Museum Mpu Purwa</h5>
                             </div>
                         </a>
