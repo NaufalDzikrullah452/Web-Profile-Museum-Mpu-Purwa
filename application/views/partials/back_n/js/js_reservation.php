@@ -79,7 +79,7 @@
                         heading: 'Failed',
                         text: "Message could not be sent.",
                         showHideTransition: 'slide',
-                        icon: 'danger',
+                        icon: 'error',
                         position: 'bottom-right',
                         bgColor: '#e74c3c',
                         onclick: null,

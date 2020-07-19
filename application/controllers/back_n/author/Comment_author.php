@@ -47,7 +47,7 @@ class Comment_author extends CI_Controller{
         $config['next_link'] = 'Next >>';
         $config['prev_link'] = '<< Prev';
 		$this->pagination->initialize($config);
-		$data['title']= "Komentar Post";
+		$data['title']= "Komentar Artikel";
         $data['page'] = $this->pagination->create_links();
 		$data['data'] = $this->comment_model->get_all_comment($offset,$limit);
 		$data['total_rows']=$count->num_rows();
@@ -216,7 +216,7 @@ class Comment_author extends CI_Controller{
         $config['next_link'] = 'Next >>';
         $config['prev_link'] = '<< Prev';
 		$this->pagination->initialize($config);
-		$data['title']= "Komentar Post";
+		$data['title']= "Komentar Artikel";
         $data['page'] = $this->pagination->create_links();
 		$data['data'] = $this->comment_model->get_all_comment_unpublish($offset,$limit);
 		$data['total_rows']=$count->num_rows();

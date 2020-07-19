@@ -109,7 +109,7 @@ class Collection extends CI_Controller{
 		
 				$qrcode=$nama.'.png'; //buat name dari qr code sesuai dengan nim
 		
-				$params['data'] = $keterangan; //data yang akan di jadikan QR CODE
+				$params['data'] = 'museummpupurwamalang.com/index.php/collect/translate/'.$preslug.''; //data yang akan di jadikan QR CODE
 				$params['level'] = 'H'; //H=High
 				$params['size'] = 10;
 				$params['savename'] = FCPATH.$config['imagedir'].$qrcode; //simpan image QR CODE ke folder assets/images/
@@ -192,11 +192,11 @@ class Collection extends CI_Controller{
 				$config['white']        = array(70,130,180); // array, default is array(0,0,0)
 				$this->ciqrcode->initialize($config);
 		
-				$qrcode=$nama.'.png'; //buat name dari qr code sesuai dengan nim
+				$qrcode=$nama.'.png'; //buat name dari qr code sesuai dengan nama
 		
-				$params['data'] = $keterangan; //data yang akan di jadikan QR CODE
+				$params['data'] = 'museummpupurwamalang.com/index.php/collect/translate/'.$preslug.''; //data yang akan di jadikan QR CODE
 				$params['level'] = 'H'; //H=High
-				$params['size'] = 10;
+				$params['size'] = 50;
 				$params['savename'] = FCPATH.$config['imagedir'].$qrcode; //simpan image QR CODE ke folder assets/images/
 				$this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
 
@@ -251,7 +251,7 @@ class Collection extends CI_Controller{
 		
 				$qrcode=$nama.'.png'; //buat name dari qr code sesuai dengan nim
 		
-				$params['data'] = $keterangan; //data yang akan di jadikan QR CODE
+				$params['data'] = 'museummpupurwamalang.com/index.php/collect/translate/'.$preslug.''; //data yang akan di jadikan QR CODE
 				$params['level'] = 'H'; //H=High
 				$params['size'] = 10;
 				$params['savename'] = FCPATH.$config['imagedir'].$qrcode; //simpan image QR CODE ke folder assets/images/

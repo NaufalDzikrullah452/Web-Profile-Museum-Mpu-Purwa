@@ -3,10 +3,9 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Kategori</h4>
+                            <h4 class="page-title pull-left">Kategori Artikel</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><span><a>Post</a></span></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/author/dashboard_author">Dashboard</a></li>
                                 <li><span>Kategori</span></li>
                             </ul>
                         </div>
@@ -144,7 +143,7 @@
                                         </div>
 
                                             <div class="modal-footer">
-                                                <input type="hidden" name="id" required>
+                                                <input type="hidden" name="id" >
                                                 <button type="button" class="btn btn-secondary btn-sm mb-3" data-dismiss="modal">Batal</button>
                                                 <button type="submit" class="btn btn-danger btn-sm mb-3">Hapus</button>
                                             </div>

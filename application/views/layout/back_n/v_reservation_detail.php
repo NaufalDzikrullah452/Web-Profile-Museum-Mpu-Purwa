@@ -5,8 +5,8 @@
                         <div class="breadcrumbs-area clearfix">
                             <h4 class="page-title pull-left">List Booking</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><a>List Booking</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/dashboard">Dashboard</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/reservation">List Booking</a></li>
                                 <li><span>Detail</span></li>
                             </ul>
                         </div>

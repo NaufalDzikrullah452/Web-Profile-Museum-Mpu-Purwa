@@ -11,7 +11,7 @@
     <title>Koleksi <?php echo $title;?></title>
 
    <!-- SEO Tags -->
-    <meta name="description" content="Kumpulan artikel <?php echo $meta_description;?> dan banyak lagi..."/>
+    <meta name="description" content="Koleksi Museum Mpu Purwa Malang"/>
     <link rel="canonical" href="<?php echo $canonical;?>" />
     <?php error_reporting(0); if(empty($url_prev)):?>
     <?php else:?>
@@ -21,10 +21,10 @@
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<?php echo $title;?>" />
-    <meta property="og:description" content="Kumpulan artikel <?php echo $meta_description;?> dan banyak lagi..." />
+    <meta property="og:description" content="Koleksi Museum Mpu Purwa Malang" />
     <meta property="og:url" content="<?php echo $canonical;?>" />
-    <meta property="og:image" content="<?php echo base_url().'theme/images/logo.png'?>" />
-    <meta property="og:image:secure_url" content="<?php echo base_url().'theme/images/logo.png'?>" />
+    <meta property="og:image" content="<?php echo base_url().'upload/images/'.$site_shortcut_icon;?>" />
+    <meta property="og:image:secure_url" content="<?php echo base_url().'upload/images/'.$site_shortcut_icon;?>" />
     <meta property="og:image:width" content="560" />
     <meta property="og:image:height" content="315" />
     <!-- / SEO plugin. -->
@@ -132,7 +132,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i>Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>"><i class="fa fa-home"></i> Beranda</a></li>
                             <li class="breadcrumb-item"><a href="<?php echo base_url('index.php/collect'); ?>">Koleksi</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Koleksi Detail</li>
                         </ol>
@@ -154,7 +154,7 @@
                             <div id="product_details_slider" class="carousel slide" data-ride="carousel">
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <a class="product-img" href="<?php echo base_url().'upload/collection/'.$image;?>" title="Koleksi Museum">
+                                        <a class="product-img" href="<?php echo base_url().'upload/collection/'.$image;?>" title="<?php echo $title; ?>">
                                         <img class="d-block w-100" src="<?php echo base_url().'upload/collection/'.$image;?>" alt="1">
                                     </a>
                                     </div>
@@ -170,7 +170,7 @@
                             <h4 class="title">Koleksi Museum : <?php echo $title;?></h4>
                             <h4 class="price"><?php echo $nomer;?></h4>
                             <div class="short_overview">
-                                <p>Scan for details</p>
+                                <p>Scan for translation</p>
                             </div>
 
                             <div class="cart--area d-flex flex-wrap align-items-center">
@@ -191,11 +191,21 @@
                                  luas <?php echo $luas;?>cm, lebar <?php echo $lebar;?>cm, panjang  <?php echo $panjang;?>cm</span></p>
                                 <p>
                                     <span>Share on:</span>
-                                    <span>
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                                    <span id="share-buttons">
+                                   
+    
+    <!-- Facebook -->
+    <a href="http://www.facebook.com/sharer.php?u=https://museummpupurwamalang.com/index.php/collect/<?php echo $slug;?>" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+    </a>
+   
+    <!-- Twitter -->
+    <a href="https://twitter.com/share?url=https://museummpupurwamalang.com/index.php/collect/<?php echo $slug;?>g" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+    </a>
+    
+
+
                                 </span>
                                 </p>
                             </div>
@@ -220,7 +230,7 @@
                         <div class="tab-content">
                             <div role="tabpanel" class="tab-pane fade show active" id="description">
                                 <div class="description_area">
-                                    <p class="justify"><?php echo $keterangan;?></p>
+                                    <p align="justify"><?php echo $keterangan;?></p>
                                 </div>
                             </div>
                         </div>
@@ -251,7 +261,7 @@
                     <div class="single-product-area mb-100">
                         <!-- Koleksi Museum -->
                         <div>
-                            <a class="product-img" href="<?php echo base_url().'upload/collection/'.$row->collect_gambar;?>" title="Koleksi Museum">
+                            <a class="product-img" href="<?php echo base_url().'upload/collection/'.$row->collect_gambar;?>" title="<?php echo $row->collect_nama;?>">
                                 <img class="d-block w-100" src="<?php echo base_url().'upload/collection/'.$row->collect_gambar;?>" alt="1">
                             </a>
                         </div>
@@ -270,8 +280,7 @@
         </div>
     </div>
     <!-- ##### Related Product Area End ##### -->
-
-        <!-- ##### Footer Area Start ##### -->
+    <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-image: url(<?php echo base_url('assets/frontend/img/bg-img/bg-footer.jpg');?>);">
         <!-- Main Footer Area -->
         <div class="main-footer-area">
@@ -282,9 +291,9 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="<?php echo base_url('assets/frontend/img/core-img/logo1.png');?>" alt=""></a>
+                                <a href="<?php base_url();?>"><img src="<?php echo base_url().'upload/images/'.$site_logo_footer;?>" alt=""></a>
                             </div>
-                            <p>Museum Mpu Purwa Malang, diresmikan di malang pada tanggal 14 Juli 2018 oleh Menteri Pendidikan dan Kebudayaan Republik Indonesia Prof. Dr. Muhadjir Efendy</p>
+                            <p><?php echo $site_description;?></p>
                            
                             <div class="row">
                                 <a ><img src="<?php echo base_url('assets/frontend/img/core-img/pemkot.png');?>" alt="">&emsp;&emsp;</a>
@@ -303,12 +312,12 @@
                             </div>
                             <nav class="widget-nav">
                                 <ul>
-                                    <li><a href="#">Arca</a></li>
-                                    <li><a href="#">Prasasti</a></li>
-                                    <li><a href="#">Museum</a></li>
-                                    <li><a href="#">Berita / Artikel</a></li>
-                                    <li><a href="#">Booking</a></li>
-                                    <li><a href="#">Map</a></li>
+                                    <li><a href="<?php echo site_url('index.php/collect_category/arca');?>">Arca</a></li>
+                                    <li><a href="<?php echo site_url('index.php/collect_category/prasasti');?>">Prasasti</a></li>
+                                    <li><a href="<?php echo site_url('index.php/about');?>">Museum</a></li>
+                                    <li><a href="<?php echo site_url('index.php/blog');?>">Berita / Artikel</a></li>
+                                    <li><a href="<?php echo site_url('index.php/reserv');?>">Reservasi</a></li>
+                                    <li><a href="<?php echo site_url('index.php/contact');?>">Map</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -318,26 +327,23 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="widget-title">
-                                <h5>Artikel Terbaru</h5>
+                                <h5>Artikel Populer</h5>
                             </div>
-                            <?php
-								$this->db->order_by('post_id', 'DESC');
-								$query = $this->db->get('tbl_post', 2);
-								foreach ($query->result() as $row):
-							?>    
+
+                            <?php 
+                                foreach($popular_post->result() as $row):?>
                             <!-- Single Best Seller Products -->
-                            <div class="single-best-seller-product d-flex align-items-center">
-                               
+                            <div class="single-best-seller-product d-flex align-items-center"> 
                                 <div class="product-info">
-                                    <a href="<?php echo site_url('blog/'.$row->post_slug);?>"><p><?php echo $row->post_title;?></p></a>
-                                    <div class="post-meta">
-                                <a href="#"><i class="fa fa-clock-o" aria-hidden="true"></i> <?php echo date('d M Y',strtotime($row->post_date));?></a>
-                                <a href="#"><i class="fa fa-user" aria-hidden="true"></i> <?php echo $row->user_name;?></a>
+                                    <a href="<?php echo site_url('index.php/blog/'.$row->post_slug);?>"><p><?php echo $row->post_title;?></p></a>
+                                <div class="post-meta">
+                                <a href="<?php echo site_url('index.php/blog/'.$row->post_slug);?>"><i class="fa fa-clock-o" aria-hidden="true"></i>  <?php echo date('d M Y',strtotime($row->post_date));?></a>
+                                <a href="<?php echo site_url('index.php/blog/'.$row->post_slug);?>"><i class="fa fa-user" aria-hidden="true"></i>  <?php echo $row->user_name;?></a>
                                 </div> 
                                 </div>
                             </div>
-                            <?php endforeach;?>        
-                          
+                            <?php endforeach;?>
+
                         </div>
                     </div>
 
@@ -349,15 +355,16 @@
                             </div>
 
                             <div class="contact-information">
-                                <p><span>Alamat:</span> Jl.Soekarno Hatta Perum. Griya Shanta Blok B No.210, Kota Malang</p>
-                                <p><span>Telepon:</span> (+62) 341-404-515</p>
-                                <p><span>Email:</span> museum.mpupurwa@gmail.com</p>
+                                <p><span>Alamat:</span> <?php echo $site_address;?></p>
+                                <p><span>Telepon:</span> <?php echo $site_telephone;?></p>
+                                <p><span>Email:</span> <?php echo $site_email;?></p>
                                 <p><span>Jam Buka:</span> Setiap Hari: 8.00 - 15.00</p>
                             </div>
                             <br>
                             <div class="social-info">
-                                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                <a href="<?php echo $site_facebook;?>"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                <a href="<?php echo $site_twitter;?>"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                <a href="<?php echo $site_instagram;?>"><i class="fa fa-instagram" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -375,10 +382,7 @@
                     <!-- Copywrite Text -->
                     <div class="col-12 col-md-6">
                         <div class="copywrite-text">
-                            <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
+                            <p> &copy; <script>document.write(new Date().getFullYear());</script> Museum Mpu Purwa Malang</p>
                         </div>
                     </div>
                     <!-- Footer Nav -->
@@ -390,7 +394,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                                     <li><a href="<?php echo base_url();?>index.php/about">Tentang Kami</a></li>
                                     <li><a href="<?php echo base_url();?>index.php/collect">Koleksi</a></li>
                                     <li><a href="<?php echo base_url();?>index.php/reserv">Reservasi</a></li>
-                                    <li><a href="<?php echo base_url();?>index.php/kontak">Kontak</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/contact">Kontak</a></li>
                                 </ul>
                             </nav>
                         </div>

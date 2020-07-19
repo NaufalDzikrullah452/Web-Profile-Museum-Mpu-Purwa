@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url();?>"><i class="fa fa-home"></i> Beranda</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Kontak</li>
                         </ol>
                     </nav>
@@ -68,22 +68,22 @@
                             <div class="row">
                                  <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="name" placeholder="Nama / Name">
+                                        <input type="text" class="form-control" name="name" placeholder="Nama / Name" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="age"  placeholder="Usia / Age">
+                                        <input type="text" class="form-control" name="age"  placeholder="Usia / Age" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="address" placeholder="Alamat / Address">
+                                        <input type="text" class="form-control" name="address" placeholder="Alamat / Address" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input  type="radio" name="origin" value="Domestik" >
+                                        <input  type="radio" name="origin" value="Domestik" required>
                                         <label>
                                             Domestik
                                         </label>
@@ -91,7 +91,7 @@
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                       <input  type="radio" name="origin" value="Non-Domestik" >
+                                       <input  type="radio" name="origin" value="Non-Domestik"required >
                                         <label>
                                             Non-Domestik
                                         </label>
@@ -100,7 +100,7 @@
                                 
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control" name="message" cols="40" rows="20" placeholder="Saran Anda"></textarea>
+                                        <textarea class="form-control" name="message" cols="40" rows="20" placeholder="Saran Anda" required></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">

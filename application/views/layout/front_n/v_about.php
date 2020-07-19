@@ -10,7 +10,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url();?>"><i class="fa fa-home"></i> Beranda</a></li>
                             <li class="breadcrumb-item active" aria-current="page"> Tentang Kami</li>
                         </ol>
                     </nav>
@@ -35,6 +35,20 @@
                            Abad ke-13 Malang kembali tampil dalam kancah sejarah jawa, yakni menjadi ibu kota Kerajaan Tumapel.
                             Kerajaan Sengguruh yang merupakan kerajaan Hindu terakhir di Jawa juga berada di kawasan selatan Kota Malang.
                          Adanya kerajaan-kerajaan tersebut menjadikan daerah Malang banyak ditemukan peninggalan purbakala.</p>
+
+                         <p align="justify">Banyak sekali benda-benda purbakala yang ada di Indonesia khususnya Pulau Jawa.
+                          Pada masa Raja-Raja Jawa masih berkuasa banyak patung, arca, candi dan prasasti yang dibuat untuk kepentingan upacara keagamaan,
+                           tempat ibadah, makam, batas wilayah, dan sebagainya. Benda-benda purbakala ini kemudian dilupakan bersamaan dengan runtuhnya kerajaan-kerajaan tersebut.
+                            Hanya segelintir orang saja yang masih mnegingatnya sampai sekarang. Sementara itu benda-benda yang hilang kini telah ditemukan kembali meskipun masih sedikit yang berhasil ditemukan dan diidentifikasi.
+                            Pemerintah kota di beberapa daerah mendirikan tempat untuk menampung benda-benda tersebut. Salah satu tempat itu adalah Museum Mpu Purwa. Museum ini terletak di Jalan Soekarno Hatta masuk ke dalam komplek perumahan Griyasantha.
+                            Museum ini menempati bangunan Guna Paramitha Acintya Bhakti yang dalam bahasa Indonesia memiliki arti pengabdian yang tulus merupakan sifat yang luhur.</p>
+                            <p align="justify">
+                            Museum Mpu Purwa didirikan pada tahun 2004 dan diresmikan oleh walikota Malang, Drs. Peni Suparto, lalu pada tanggal 14 Juli 2018 diresmikan kembali oleh Menteri Pendidikan dan Kebudayaan Republik Indonesia Prof. Dr. Muhadjir Efendy menjadi museum yang lebih repersentatif. 
+                            Peninggalan sejarah yang tersimpan di dalam museum ini kebanyakan berupa patung dan arca yang berasal dari masa Kerajaan Mpu Sindok sampai Kerajaan Majapahit.
+                            Beberapa arca itu diantaranya adalah arca Brahma yang memiliki model unik, berbeda dari arca-arca Brahma lain yang pernah ditemukan.
+                           Arca ini merupakan mascot dari Museum Mpu Purwa. Selain itu ada banyak arca Ganesya di museum ini,
+                          tapi arca Ganesya yang paling unik adalah arca Ganesya tikus. Arca ini berukuran kecil dan Ganesya dalam arca ini digambarkan sedang duduk di atas Musaka (seekor tikus kecil). Arca ini adalah satu-satunya arca di Indonesia yang menggambarkan sang dewa sedang mengendarai wahananya.
+                           Arca seperti ini hanya banyak ditemukan di India. Lalu ada juga arca Bodhisatwa yang juga hanya banyak ditemukan di India.</p>
                 </div>
 
                 <div class="col-12 col-lg-6">
@@ -104,7 +118,7 @@
                             <!-- Content -->
                             <div class="service-content">
                                 <h5>Movie Room</h5>
-                                <p>In Aenean purus, pretium sito amet sapien denim moste consectet sedoni urna placerat sodales.service its.</p>
+                                <p>Ruang yang digunakan untuk pemutaran video - video sejarah</p>
                             </div>
                         </div>
 
@@ -117,7 +131,7 @@
                             <!-- Content -->
                             <div class="service-content">
                                 <h5>Gazebo</h5>
-                                <p>In Aenean purus, pretium sito amet sapien denim moste consectet sedoni urna placerat sodales.service its.</p>
+                                <p>Terdapat gazebo di museum mpu purwa, digunakan untuk bersantai, berkumpul dan berbincang-bincang.</p>
                             </div>
                         </div>
 
@@ -129,16 +143,16 @@
                             </div>
                             <!-- Content -->
                             <div class="service-content">
-                                <h5>Hall Room</h5>
-                                <p>In Aenean purus, pretium sito amet sapien denim moste consectet sedoni urna placerat sodales.service its.</p>
+                                <h5>Taman</h5>
+                                <p>Taman kecil yang terletak di dekat tempat parkir, ditengah-tengahnya terdapat patung Budha Akhsobya.</p>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-6">
-                        <iframe <?php echo $site_url_video;?> ></iframe>
+                <div class="video-wrapper">
+                        <iframe <?php echo $site_url_video;?>></iframe>
                 </div>
             </div>
         </div>

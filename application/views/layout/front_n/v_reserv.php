@@ -38,39 +38,39 @@
                             <div class="row">
                                  <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="sekolah" placeholder="nama sekolah">
+                                        <input type="text" class="form-control" name="sekolah" placeholder="nama sekolah" required>
                                     </div>
                                 </div>
                                  <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="penanggung_jwb" placeholder="nama penanggung jawab">
+                                        <input type="text" class="form-control" name="penanggung_jwb" placeholder="nama penanggung jawab" required>
                                     </div>
                                 </div>
                                  <div class="col-12">
                                     <div class="form-group">
-                                        <input type="file" name="dokumen" placeholder="surat rekomendasi dari sekolah">
+                                        <input type="file" name="dokumen" placeholder="surat rekomendasi dari sekolah" required>
                                         <br>
                                         <smalls style="color:grey;">*Surat rekomendasi dari sekolah (format harus pdf/docx)</small>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="telp" placeholder="no.telp aktif">
+                                        <input type="text" class="form-control" name="telp" placeholder="no.telp aktif" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" name="alamat" placeholder="alamat sekolah">
+                                        <input type="text" class="form-control" name="alamat" placeholder="alamat sekolah" required>
                                     </div>
                                 </div>
                                  <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control" name="email" placeholder="Email aktif">
+                                        <input type="email" class="form-control" name="email" placeholder="Email aktif" required>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <div class="form-group">
-                                        <input type="number" class="form-control" name="jml_peserta" placeholder="jumlah peserta">
+                                        <input type="number" class="form-control" name="jml_peserta" placeholder="jumlah peserta" required>
                                     </div>
                                 </div>
                                 

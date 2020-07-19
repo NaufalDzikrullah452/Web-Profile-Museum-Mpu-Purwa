@@ -5,7 +5,7 @@
                         <div class="breadcrumbs-area clearfix">
                             <h4 class="page-title pull-left">Dashboard</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/author/dashboard_author">Home</a></li>
                                 <li><span>Dashboard</span></li>
                             </ul>
                         </div>
@@ -25,7 +25,7 @@
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('name');?> <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<?php echo base_url('index.php/back_n/author/change_pass_author');?>"><i class="fa fa-key"></i> Ubah Password</a>
-                                <a class="dropdown-item" href="<?php echo base_url();?>"><i class="fa fa-globe" target="_blank"></i> Web Profil</a>
+                                <a class="dropdown-item" href="<?php echo base_url();?>"  target="_blank"><i class="fa fa-globe"></i> Web Profil</a>
                                 <a class="dropdown-item" href="<?php echo base_url('index.php/login/logout'); ?>"> <i class="fa fa-sign-out"></i> Log Out</a>
                             </div>
                         </div>

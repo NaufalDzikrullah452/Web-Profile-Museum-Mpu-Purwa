@@ -14,19 +14,14 @@ class Blog extends CI_Controller {
 	}
 
     function index(){
-		$jum=$this->blog_model->get_blogs();
-	    $page=$this->uri->segment(3);
-	    if(!$page):
-	        $offset = 0;
-	    else:
-	        $offset = $page;
-	    endif;
-	    $limit=8;
-	    $config['base_url'] = base_url() . 'blog/page/';
-	    $config['total_rows'] = $jum->num_rows();
-	    $config['per_page'] = $limit;
-	    $config['uri_segment'] = 3;
-	    $config['use_page_numbers']=TRUE;
+		//konfigurasi pagination
+        $config['base_url'] = site_url('index.php/blog/index'); //site url
+        $config['total_rows'] = $this->db->count_all('tbl_post'); //total row
+        $config['per_page'] = 8;  //show record per halaman
+		$config["uri_segment"] = 3;  // uri parameter
+		$config['use_page_numbers']=TRUE;
+        $choice = $config["total_rows"] / $config["per_page"];
+        $config["num_links"] = floor($choice);
 
 	    //Tambahan untuk styling
         $config['full_tag_open']    = '<div class="row"><div class="col-12"><nav aria-label="Page navigation"><ul class="pagination">';
@@ -49,27 +44,12 @@ class Blog extends CI_Controller {
 	    $config['next_link'] = '>>';
 	    $config['prev_link'] = '<<';
 	    $this->pagination->initialize($config);
-	    $x['page'] =$this->pagination->create_links();
-		$x['data']=$this->blog_model->get_blog_perpage($offset,$limit);
-		$x['judul']="Blog";
-		if(empty($this->uri->segment(3))){
-			$next_page=2;
-			$x['canonical']=site_url('blog');
-			$x['url_prev']="";
-		}elseif($this->uri->segment(3)=='1'){
-			$next_page=2;
-			$x['canonical']=site_url('blog');
-			$x['url_prev']=site_url('blog');
-		}elseif($this->uri->segment(3)=='2'){
-			$next_page=$this->uri->segment(3)+1;
-			$x['canonical']=site_url('blog/page/'.$this->uri->segment(3));
-			$x['url_prev']=site_url('blog');
-		}else{
-			$next_page=$this->uri->segment(3)+1;
-			$prev_page=$this->uri->segment(3)-1;
-			$x['canonical']=site_url('blog/page/'.$this->uri->segment(3));
-			$x['url_prev']=site_url('blog/page/'.$prev_page);
-		}
+	    $x['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+ 
+        //panggil function get_collection_list yang ada pada model mahasiswa_model. 
+        $x['data'] = $this->blog_model->get_blog_perpage($config["per_page"], $x['page']);           
+		$x['pagination'] = $this->pagination->create_links();
+
 		$site = $this->site_model->get_site_data()->row_array();
         $x['site_name'] = $site['site_name'];
 		$x['site_title'] = $site['site_title'];
@@ -85,9 +65,9 @@ class Blog extends CI_Controller {
 		$x['site_facebook'] = $site['site_facebook'];
 		$x['site_twitter'] = $site['site_twitter'];
 		$x['site_instagram'] = $site['site_instagram'];
+		$x['judul']="Blog";
 		$x['latest_post'] = $this->home_model->get_latest_post();
 		$x['popular_post'] = $this->home_model->get_popular_post();
-		$x['url_next']=site_url('blog/page/'.$next_page);
 		$x['populer_post'] = $this->blog_model->get_popular_post();
 		$query = $this->db->query("SELECT GROUP_CONCAT(category_name) AS category_name FROM tbl_category")->row_array();
 		$x['meta_description'] = $query['category_name'];

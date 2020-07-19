@@ -3,10 +3,10 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Post</h4>
+                            <h4 class="page-title pull-left">List Artikel</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="#">Dashboard</a></li>
-                                <li><span>Post</span></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/author/dashboard_author">Dashboard</a></li>
+                                <li><span>List Artikel</span></li>
                             </ul>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('name');?> <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<?php echo base_url('index.php/back_n/author/change_pass_author');?>"><i class="fa fa-key"></i> Ubah Password</a>
-                                <a class="dropdown-item" href="<?php echo base_url();?>"><i class="fa fa-globe" target="_blank"></i> Web Profil</a>
+                                <a class="dropdown-item" href="<?php echo base_url();?>" target="_blank"><i class="fa fa-globe" ></i> Web Profil</a>
                                 <a class="dropdown-item" href="<?php echo base_url('index.php/login/logout'); ?>"> <i class="fa fa-sign-out"></i> Log Out</a>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h4 class="modal-title" id="myModalLabel">Delete Post</h4>
+                        <h4 class="modal-title" id="myModalLabel">Delete Artikel</h4>
                         <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                     </div>
                         <div class="modal-body">

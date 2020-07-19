@@ -9,7 +9,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="<?php echo base_url().'upload/images/'.$site_logo_footer;?>" alt=""></a>
+                                <a href="<?php echo site_url();?>"><img src="<?php echo base_url().'upload/images/'.$site_logo_footer;?>" alt=""></a>
                             </div>
                             <p><?php echo $site_description;?></p>
                            
@@ -30,12 +30,12 @@
                             </div>
                             <nav class="widget-nav">
                                 <ul>
-                                    <li><a href="#">Arca</a></li>
-                                    <li><a href="#">Prasasti</a></li>
-                                    <li><a href="#">Museum</a></li>
-                                    <li><a href="#">Berita / Artikel</a></li>
-                                    <li><a href="#">Booking</a></li>
-                                    <li><a href="#">Map</a></li>
+                                    <li><a href="<?php echo site_url('index.php/collect_category/arca');?>">Arca</a></li>
+                                    <li><a href="<?php echo site_url('index.php/collect_category/prasasti');?>">Prasasti</a></li>
+                                    <li><a href="<?php echo site_url('index.php/about');?>">Museum</a></li>
+                                    <li><a href="<?php echo site_url('index.php/blog');?>">Berita / Artikel</a></li>
+                                    <li><a href="<?php echo site_url('index.php/reserv');?>">Reservasi</a></li>
+                                    <li><a href="<?php echo site_url('index.php/contact');?>">Map</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -100,10 +100,7 @@
                     <!-- Copywrite Text -->
                     <div class="col-12 col-md-6">
                         <div class="copywrite-text">
-                            <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> Museum Mpu Purwa | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib X DZIK</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
+                            <p> &copy; <script>document.write(new Date().getFullYear());</script> Museum Mpu Purwa Malang</p>
                         </div>
                     </div>
                     <!-- Footer Nav -->
@@ -115,7 +112,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Museu
                                     <li><a href="<?php echo base_url();?>index.php/about">Tentang Kami</a></li>
                                     <li><a href="<?php echo base_url();?>index.php/collect">Koleksi</a></li>
                                     <li><a href="<?php echo base_url();?>index.php/reserv">Reservasi</a></li>
-                                    <li><a href="<?php echo base_url();?>index.php/kontak">Kontak</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/contact">Kontak</a></li>
                                 </ul>
                             </nav>
                         </div>

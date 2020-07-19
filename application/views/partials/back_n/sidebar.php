@@ -2,7 +2,7 @@
         <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="index.html"><img src="<?php echo base_url('assets/backend/images/icon/logo.png');?>" alt="logo"></a>
+                    <a href="<?php echo base_url();?>index.php/back_n/dashboard"><img src="<?php echo base_url('assets/backend/images/icon/logo.png');?>" alt="logo"></a>
                 </div>
             </div>
             <div class="main-menu">

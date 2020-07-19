@@ -10,8 +10,8 @@
     <!-- Title -->
     <title><?php echo $judul;?></title>
 
-   <!-- SEO Tags -->
-    <meta name="description" content="Kumpulan artikel <?php echo $meta_description;?> dan banyak lagi..."/>
+    <!-- SEO Tags -->
+    <meta name="description" content="Koleksi Museum Mpu Purwa Malang "/>
     <link rel="canonical" href="<?php echo $canonical;?>" />
     <?php error_reporting(0); if(empty($url_prev)):?>
     <?php else:?>
@@ -20,11 +20,11 @@
     <link rel="next" href="<?php echo $url_next;?>" />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="<?php echo $judul;?>" />
-    <meta property="og:description" content="Kumpulan artikel <?php echo $meta_description;?> dan banyak lagi..." />
+    <meta property="og:title" content="<?php echo $title;?>" />
+    <meta property="og:description" content="Koleksi Museum Mpu Purwa Malang" />
     <meta property="og:url" content="<?php echo $canonical;?>" />
-    <meta property="og:image" content="<?php echo base_url().'theme/images/logo.png'?>" />
-    <meta property="og:image:secure_url" content="<?php echo base_url().'theme/images/logo.png'?>" />
+    <meta property="og:image" content="<?php echo base_url().'upload/images/'.$site_shortcut_icon;?>" />
+    <meta property="og:image:secure_url" content="<?php echo base_url().'upload/images/'.$site_shortcut_icon;?>" />
     <meta property="og:image:width" content="560" />
     <meta property="og:image:height" content="315" />
     <!-- / SEO plugin. -->
@@ -132,7 +132,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url();?>"><i class="fa fa-home"></i> Beranda</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Koleksi</li>
                         </ol>
                     </nav>
@@ -176,10 +176,7 @@
                                 <div class="slider-range">
                                     <div data-min="8" data-max="30" data-unit="$" class="slider-range-price ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" data-value-min="8" data-value-max="30" data-label-result="Koleksi:">
                                         <div class="ui-slider-range ui-widget-header ui-corner-all"></div>
-                                        
-                                       
                                     </div>
-                                   
                                 </div>
                             </div>
                         </div>
@@ -191,7 +188,7 @@
                                 <!-- Single Checkbox -->
                                 <div class="custom-control d-flex align-items-center mb-2">
                                 <a href="<?php echo site_url('index.php/collect_category/');?>">
-                                    <label class="custom-control-label">Semua Koleksi <span class="text-muted">(72)</span></label>
+                                    <label class="custom-control-label">Semua Koleksi <span class="text-muted"></span></label>
                                 </a>
                                 </div>
                                 <!-- Single Checkbox -->
@@ -201,7 +198,7 @@
 						        ?>
                                 <div class="custom-control d-flex align-items-center mb-2">
                                 <a href="<?php echo site_url('index.php/collect_category/'.$row->collect_category_slug);?>">
-                                    <label class="custom-control-label"><?php echo strtoupper($row->collect_category_name);?> <span class="text-muted">(20)</span></label>
+                                    <label class="custom-control-label"><?php echo strtoupper($row->collect_category_name);?> <span class="text-muted"></span></label>
                                 </a>
                                 </div>
                                 <?php endforeach;?>
@@ -221,23 +218,25 @@
                             <?php foreach ($data->result() as $row):?>
                             <div class="col-12 col-sm-6 col-lg-3">
                                 <div class="single-product-area mb-50">
-                                    <!-- Product Image -->
-                                    <div class="product-img">
-                                        <img class="d-block w-100" src="<?php echo base_url().'upload/collection/'.$row->collect_gambar;?>" alt="">
+                                    <!-- Koleksi Museum -->
+                                    <div>
+                                        <a class="product-img" href="<?php echo base_url().'upload/collection/'.$row->collect_gambar;?>" title="<?php echo $row->collect_nama;?>">
+                                            <img class="d-block w-80" src="<?php echo base_url().'upload/collection/'.$row->collect_gambar;?>" alt="">
+                                        </a>
                                     </div>
                                     <!-- Product Info -->
                                     <div class="product-info mt-15 text-center">
                                         <a href="<?php echo site_url('index.php/collect/'.$row->collect_slug);?>">
                                              <h6> <?php echo $row->collect_nama;?></h6>
                                         </a>
-                                        <p><?php echo date('d M Y',strtotime($row->collect_date));?></p>
+                                        <p><a href="<?php echo site_url('index.php/collect/'.$row->collect_slug);?>"> Detail</a></p>
                                     </div>
                                 </div>
                             </div>
                             <?php endforeach;?>
 
                         <!-- Pagination -->
-                        <?php echo $page;?>
+                        <?php echo $pagination;?>
                         <!-- End Pagination -->
                     </div>
                 </div>
@@ -245,7 +244,7 @@
         </div>
     </section>
     <!-- ##### Shop Area End ##### -->
-        <!-- ##### Footer Area Start ##### -->
+            <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-image: url(<?php echo base_url('assets/frontend/img/bg-img/bg-footer.jpg');?>);">
         <!-- Main Footer Area -->
         <div class="main-footer-area">
@@ -256,7 +255,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="<?php echo base_url().'upload/images/'.$site_logo_footer;?>" alt=""></a>
+                                <a href="<?php base_url();?>"><img src="<?php echo base_url().'upload/images/'.$site_logo_footer;?>" alt=""></a>
                             </div>
                             <p><?php echo $site_description;?></p>
                            
@@ -277,12 +276,12 @@
                             </div>
                             <nav class="widget-nav">
                                 <ul>
-                                    <li><a href="#">Arca</a></li>
-                                    <li><a href="#">Prasasti</a></li>
-                                    <li><a href="#">Museum</a></li>
-                                    <li><a href="#">Berita / Artikel</a></li>
-                                    <li><a href="#">Booking</a></li>
-                                    <li><a href="#">Map</a></li>
+                                    <li><a href="<?php echo site_url('index.php/collect_category/arca');?>">Arca</a></li>
+                                    <li><a href="<?php echo site_url('index.php/collect_category/prasasti');?>">Prasasti</a></li>
+                                    <li><a href="<?php echo site_url('index.php/about');?>">Museum</a></li>
+                                    <li><a href="<?php echo site_url('index.php/blog');?>">Berita / Artikel</a></li>
+                                    <li><a href="<?php echo site_url('index.php/reserv');?>">Reservasi</a></li>
+                                    <li><a href="<?php echo site_url('index.php/contact');?>">Map</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -347,10 +346,7 @@
                     <!-- Copywrite Text -->
                     <div class="col-12 col-md-6">
                         <div class="copywrite-text">
-                            <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
+                            <p> &copy; <script>document.write(new Date().getFullYear());</script> Museum Mpu Purwa Malang</p>
                         </div>
                     </div>
                     <!-- Footer Nav -->
@@ -358,7 +354,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         <div class="footer-nav">
                             <nav>
                                 <ul>
-                                    <li><a href="<?php echo base_url();?>">Beranda</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php">Beranda</a></li>
                                     <li><a href="<?php echo base_url();?>index.php/about">Tentang Kami</a></li>
                                     <li><a href="<?php echo base_url();?>index.php/collect">Koleksi</a></li>
                                     <li><a href="<?php echo base_url();?>index.php/reserv">Reservasi</a></li>

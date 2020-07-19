@@ -59,32 +59,6 @@
                     <!-- profile info & task notification -->
                     <div class="col-md-6 col-sm-4 clearfix">
                         <ul class="notification-area pull-right">
-                        <?php 
-                                $count_suggestion = $this->db->get_where('tbl_suggestion', array('suggestion_status' => '0'));
-                        ?>
-                            <li class="dropdown">
-                                <i class="fa fa-inbox dropdown-toggle" data-toggle="dropdown">
-                                    <span><?php echo $count_suggestion->num_rows();?></span>
-                                </i>
-                                <div class="dropdown-menu bell-notify-box notify-box">
-                                    <span class="notify-title">Anda memiliki <?php echo $count_suggestion->num_rows();?> pesan baru ! <a href="<?php echo site_url('index.php/back_n/suggestion');?>">semua</a></span>
-                                    <div class="nofity-list">
-                                    <?php 
-                                            $query_msg = $this->db->get_where('tbl_suggestion', array('suggestion_status' => '0'), 6);
-                                            foreach ($query_msg->result() as $row) :
-                                    ?>
-                                        <a href="<?php echo site_url('index.php/back_n/suggestion');?>" class="notify-item">
-                                            <div class="notify-thumb"><i class="fa fa-envelope-o btn-danger"></i></div>
-                                            <div class="notify-text">
-                                                <p><b><?php echo $row->suggestion_name;?></b></p>
-                                                <p class="msg-text"><?php echo word_limiter($row->suggestion_message,5);?></p>
-                                                <span><?php echo date('d-m-Y H:i:s', strtotime($row->suggestion_date));?></span>
-                                            </div>
-                                        </a>
-                                    <?php endforeach;?> 
-                                    </div>
-                                </div>
-                            </li>
                             
                             <?php
                                     $count_comment = $this->db->get_where('tbl_comment', array('comment_status' => '0'));
@@ -93,13 +67,13 @@
                                 <i class="ti-comment-alt dropdown-toggle" data-toggle="dropdown">
                                 <span><?php echo $count_comment->num_rows();?></span></i>
                                 <div class="dropdown-menu notify-box nt-enveloper-box">
-                                    <span class="notify-title">Anda memiliki <?php echo $count_comment->num_rows();?> komentar baru ! <a href="<?php echo site_url('index.php/back_n/comment/unpublish');?>">semua</a></span>
+                                    <span class="notify-title">Anda memiliki <?php echo $count_comment->num_rows();?> komentar baru ! <a href="<?php echo site_url('index.php/back_n/author/comment_author/unpublish');?>">semua</a></span>
                                     <div class="nofity-list">
                                         <?php 
                                             $query_cmt = $this->db->get_where('tbl_comment', array('comment_status' => '0'), 6);
                                             foreach ($query_cmt->result() as $row) :
                                         ?>
-                                        <a href="<?php echo site_url('index.php/back_n/comment/unpublish');?>" class="notify-item">
+                                        <a href="<?php echo site_url('index.php/back_n/author/comment_author/unpublish');?>" class="notify-item">
                                         <div class="notify-thumb">
                                             <img class="img-circle" src="<?php echo base_url().'upload/user/user_blank.png';?>" alt="">
                                         </div>

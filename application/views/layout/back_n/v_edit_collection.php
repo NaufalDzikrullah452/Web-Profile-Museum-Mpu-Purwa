@@ -9,8 +9,8 @@
                         <div class="breadcrumbs-area clearfix">
                             <h4 class="page-title pull-left">Edit Data Koleksi</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><span><a>Koleksi Museum</a></span></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/dashboard">Dashboard</a></li>
+                                <li><span><a href="<?php echo base_url();?>index.php/back_n/collection">Koleksi Museum</a></span></li>
                                 <li><span>Edit Data</span></li>
                             </ul>
                         </div>

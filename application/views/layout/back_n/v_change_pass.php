@@ -3,10 +3,10 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Ganti Password</h4>
+                            <h4 class="page-title pull-left">Ubah Password</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><span>Ganti Password</span></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/dashboard">Dashboard</a></li>
+                                <li><span>Ubah Password</span></li>
                             </ul>
                         </div>
                     </div>
@@ -25,7 +25,7 @@
                             <h4 class="user-name dropdown-toggle" data-toggle="dropdown"><?php echo $this->session->userdata('name');?> <i class="fa fa-angle-down"></i></h4>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="<?php echo base_url('index.php/back_n/change_pass');?>"><i class="fa fa-key"></i> Ubah Password</a>
-                                <a class="dropdown-item" href="<?php echo base_url();?>"><i class="fa fa-globe" target="_blank"></i> Web Profil</a>
+                                <a class="dropdown-item" href="<?php echo base_url();?>" target="_blank"><i class="fa fa-globe" ></i> Web Profil</a>
                                 <a class="dropdown-item" href="<?php echo base_url('index.php/login/logout'); ?>"> <i class="fa fa-sign-out"></i> Log Out</a>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                             <div class="col-12 mt-5">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title">Ganti Password</h4>
+                                        <h4 class="header-title">Ubah Password</h4>
 
                                     <form  action="<?php echo site_url('index.php/back_n/change_pass/change');?>" method="post">
                                        <div class="form-group">
@@ -57,7 +57,7 @@
 
                                         <div class="form-group">
                                         
-                                          <button type="submit" class="btn btn-md btn-success">Ubah Password</button>
+                                          <button type="submit" class="btn btn-md btn-success">Simpan</button>
                                         
                                       </div>
                                     </form>

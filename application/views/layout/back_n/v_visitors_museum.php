@@ -5,7 +5,7 @@
                         <div class="breadcrumbs-area clearfix">
                             <h4 class="page-title pull-left">Data Pengunjung</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="#">Dashboard</a></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/dashboard">Dashboard</a></li>
                                 <li><span>Data Pengunjung</span></li>
                             </ul>
                         </div>
@@ -46,8 +46,7 @@
                                         <thead class="text-capitalize">
                                             <tr>
                                                 <th>No</th>
-                                                <th>Bulan</th>
-                                                <th>Tahun</th>
+                                                <th>Tanggal</th>
                                                 <th>Dinas</th>
                                                 <th>Umum</th>
                                                 <th>Pelajar</th>
@@ -75,50 +74,46 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
-                                                        <select class="form-control" name="bulan" id="visit_month_id">
-													        <option value="">Pilih Bulan</option>
-														<?php 
-														foreach($bulan as $row):?>
-														    <option value="<?php echo $row->month_id;?>"><?php echo $row->month_name;?></option>
-														<?php endforeach;?>
-													    </select>
+                                                            <label class="col-form-label">Bulan dan Tahun :</label>
+                                                            <input type="date" id="visit_month_year"  placeholder="bulan tahun" name="bulan_tahun" class="form-control">
                                                         </div>
                                                     </div>
+                                                    <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" id="visit_year" data-plugin-masked-input data-input-mask=" 9999" placeholder="tahun" name="tahun" class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
+                                                            <label class="col-form-label">Pengunjng Dinas :</label>
                                                             <input type="text" id="visit_dinas" name="dinas" class="form-control" placeholder="pengunjung dinas">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label class="col-form-label">Pengunjng Umum :</label>
                                                             <input type="text" id="visit_umum" name="umum" class="form-control" placeholder="pengunjung umum">
                                                         </div>
                                                     </div>
+                                                    </div>
+                                                    <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label class="col-form-label">Pengunjng Pelajar :</label>
                                                             <input type="text" id="visit_pelajar" name="pelajar" class="form-control" placeholder="pengunjung pelajar">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label class="col-form-label">Pengunjung Asing :</label>
                                                             <input type="text" id="visit_asing" name="asing" class="form-control" placeholder="pengunjung asing">
                                                         </div>
                                                     </div>
+                                                    </div>
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <textarea class="form-control" id="visit_note" rows="3" name="keterangan" placeholder="keterangan"></textarea>
+                                                            <label class="col-form-label">catatan :</label>
+                                                            <textarea class="form-control" id="visit_note" rows="3" name="keterangan" placeholder="catatan"></textarea>
                                                         </div>
                                                     </div>
-                                                </div>
                                             </div>
 
                                             <div class="modal-footer">
@@ -131,7 +126,7 @@
                              </form>
                              <!-- Modal Add New Visitor End -->
                              <!-- Modal Cetak Laporan Start -->
-                                <form  action="<?php echo base_url().'index.php/back_n/visitors_museum/pdf_output'?>" method="post" enctype="multipart/form-data">
+                                <form action="<?php echo base_url().'index.php/back_n/visitors_museum/pdf_output'?>" method="post" enctype="multipart/form-data">
                                 <div class="modal fade" data-backdrop="static" id="LaporanModal">
                                 <input type="hidden" name="visit_id"/> 
                                     <div class="modal-dialog modal-lg">
@@ -143,18 +138,8 @@
                                     <div class="modal-body">
                                                 <div class="row">
                                                 <div class="form-group col-md-6">
-                                                <label class="col-form-label">Bulan :</label>
-                                                    <select class="form-control" name="bulan">
-													        <option value="">Pilih Bulan</option>
-														<?php 
-														foreach($bulan as $row):?>
-														    <option value="<?php echo $row->month_id;?>"><?php echo $row->month_name;?></option>
-														<?php endforeach;?>
-													</select>
-                                                </div>
-                                                <div class="form-group col-md-6">
-                                                <label class="col-form-label">Tahun :</label>
-                                                    <input type="text" name="tahun" class="form-control" placeholder="tahun">
+                                                <label class="col-form-label">Bulan dan Tahun :</label>
+                                                    <input type="date" name="bulan_tahun" class="form-control" placeholder="bulan tahun">
                                                 </div>
                                                 </div>
                                                 <div class="form-group">
@@ -167,70 +152,74 @@
                                                 <div class="row">
                                                 <div class="form-group col-md-6">
                                                 <label class="col-form-label">Desa :</label>
-                                                    <input type="text" name="desa" value="" class="form-control" placeholder="nama desa" required>
+                                                    <input type="text" name="desa" value="Perum. Griya Shanta" class="form-control" placeholder="nama desa" required>
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                 <label class="col-form-label">Dusun :</label>
-                                                    <input type="text" name="dusun" value="" class="form-control" placeholder="nama dusun" required>
+                                                    <input type="text" name="dusun" value="Jl. Soekarno-Hatta" class="form-control" placeholder="nama dusun" required>
                                                 </div>
                                                 </div>
                                                 <div class="row">
                                                 <div class="form-group col-md-6">
                                                 <label class="col-form-label">Kecamatan :</label>
-                                                    <input type="text" name="kecamatan" value="" class="form-control" placeholder="kecamatan">
+                                                    <input type="text" name="kecamatan" value="Lowokwaru" class="form-control" placeholder="kecamatan">
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                 <label class="col-form-label">Kabupaten :</label>
-                                                    <input type="text" name="kabupaten" value="" class="form-control" placeholder="kabupaten">
+                                                    <input type="text" name="kabupaten" value="Kota Malang" class="form-control" placeholder="kabupaten">
                                                 </div>
                                                 </div>
                                                 <div class="form-group">
                                                 <label class="col-form-label"><strong>Cagar Budaya yang dikelola</strong></label>
                                                 </div>
                                                 <div class="row">
-                                                <div class="form-group col-md-2">
+                                                <div class="form-group col-md-4">
                                                 <label class="col-form-label">No.1 :</label>
-                                                    <input type="text" name="no_1" value="" class="form-control" placeholder="nomer 1">
+                                                    <input type="text" name="no_1" value="Lingga Patok" class="form-control" placeholder="nomer 1">
                                                 </div>
-                                                <div class="form-group col-md-2">
+                                                <div class="form-group col-md-4">
                                                 <label class="col-form-label">No.2 :</label>
-                                                    <input type="text" name="no_2" value="" class="form-control" placeholder="nomer 2">
+                                                    <input type="text" name="no_2" value="Prasasti" class="form-control" placeholder="nomer 2">
                                                 </div>
-                                                <div class="form-group col-md-2">
+                                                <div class="form-group col-md-4">
                                                 <label class="col-form-label">No.3 :</label>
-                                                    <input type="text" name="no_3" value="" class="form-control" placeholder="nomer 3">
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                <label class="col-form-label">No.4 :</label>
-                                                    <input type="text" name="no_4" value="" class="form-control" placeholder="nomer 4">
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                <label class="col-form-label">No.5 :</label>
-                                                    <input type="text" name="no_5" value="" class="form-control" placeholder="nomer 5">
-                                                </div>
-                                                <div class="form-group col-md-2">
-                                                <label class="col-form-label">No.6 :</label>
-                                                    <input type="text" name="no_6" value="" class="form-control" placeholder="nomer 6">
+                                                    <input type="text" name="no_3" value="Bangunan Candi" class="form-control" placeholder="nomer 3">
                                                 </div>
                                                 </div>
                                                 <div class="row">
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-4">
+                                                <label class="col-form-label">No.4 :</label>
+                                                    <input type="text" name="no_4" value="Prasejarah" class="form-control" placeholder="nomer 4">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                <label class="col-form-label">No.5 :</label>
+                                                    <input type="text" name="no_5" value="Lingga dan Yoni" class="form-control" placeholder="nomer 5">
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                <label class="col-form-label">No.6 :</label>
+                                                    <input type="text" name="no_6" value="Antropologi" class="form-control" placeholder="nomer 6">
+                                                </div>
+                                                </div>
+                                                <div class="row">
+                                                <div class="form-group col-md-4">
                                                 <label class="col-form-label">No.7 :</label>
-                                                    <input type="text" name="no_7" value="" class="form-control" placeholder="nomer 7">
+                                                    <input type="text" name="no_7" value="Kuncup Teratai" class="form-control" placeholder="nomer 7">
                                                 </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-4">
                                                 <label class="col-form-label">No.8 :</label>
-                                                    <input type="text" name="no_8" value="" class="form-control" placeholder="nomer 8">
+                                                    <input type="text" name="no_8" value="Arca" class="form-control" placeholder="nomer 8">
                                                 </div>
-                                                <div class="form-group col-md-3">
+                                                <div class="form-group col-md-4">
                                                 <label class="col-form-label">No.9 :</label>
-                                                    <input type="text" name="no_9" value="" class="form-control" placeholder="nomer 9">
+                                                    <input type="text" name="no_9" value="Batu Bata Merah" class="form-control" placeholder="nomer 9">
                                                 </div>
-                                                <div class="form-group col-md-3">
-                                                <label class="col-form-label">No.10 :</label>
+                                                </div>
+                                                <fieldset disabled>
+                                                <div class="form-group col-md-4">
+                                                <label class="col-form-label" for="disabledTextInput">No.10 :</label>
                                                     <input type="text" id="disabledTextInput" value="dsb" class="form-control" placeholder="nomer 10">
                                                 </div>
-                                                </div>
+                                                </fieldset>
                                                 <div class="row">
                                                 <div class="form-group col-md-6">
                                                 <label class="col-form-label">Kondisi Sarana Prasarana :</label>
@@ -243,7 +232,7 @@
                                                 </div>
                                                 <div class="form-group col-md-6">
                                                 <label class="col-form-label">Tanggal laporan :</label>
-                                                    <input type="date" name="tgl" class="form-control" placeholder="nomer 10">
+                                                    <input type="date" name="tgl" class="form-control" placeholder="tanggal">
                                                 </div>
                                                 </div>
                                                 <div class="form-group">
@@ -278,7 +267,7 @@
                                     </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary btn-sm mb-3" data-dismiss="modal">Cancel</button>
-                                                <button type="submit" class="btn btn-success btn-sm mb-3"><i class="fa fa-file-pdf-o"></i> Buat Pdf</button>
+                                                <button type="submit" id="buttonpdf" class="btn btn-success btn-sm mb-3"><i class="fa fa-file-pdf-o"></i> Buat Pdf</button>
                                             </div>
                                         </div>
                                     </div>
@@ -296,50 +285,46 @@
                                                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><span>&times;</span></button>
                                             </div>
                                             <div class="modal-body">
-                                                
-                                                <div class="row">
-                                                    <div class="col-md-6">
+                                                    <div class="col-md-12">
                                                         <div class="form-group">
-                                                        <select class="form-control" name="bulan_edit" id="visit_month_id2">
-													        <option value="">Pilih Bulan</option>
-														<?php 
-														foreach($bulan as $row):?>
-														    <option value="<?php echo $row->month_id;?>"><?php echo $row->month_name;?></option>
-														<?php endforeach;?>
-													    </select>
+                                                            <label class="col-form-label">Bulan dan Tahun :</label>
+                                                            <input type="date" id="visit_month_year2" name="bulan_tahun_edit" placeholder="bulan dan tahun"  class="form-control">
                                                         </div>
                                                     </div>
+                                                    <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
-                                                            <input type="text" id="visit_year2" name="tahun_edit" data-plugin-masked-input data-input-mask=" 9999" placeholder="tahun"  class="form-control">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group">
+                                                            <label class="col-form-label">Pengunjng Dinas :</label>
                                                             <input type="text" id="visit_dinas2" name="dinas_edit" class="form-control" placeholder="pengunjung dinas">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label class="col-form-label">Pengunjng Umum :</label>
                                                             <input type="text" id="visit_umum2" name="umum_edit" class="form-control" placeholder="pengunjung umum">
                                                         </div>
                                                     </div>
+                                                    </div>
+                                                    <div class="row">
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label class="col-form-label">Pengunjng Pelajar :</label>
                                                             <input type="text" id="visit_pelajar2" name="pelajar_edit" class="form-control" placeholder="pengunjung pelajar">
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6">
                                                         <div class="form-group">
+                                                            <label class="col-form-label">Pengunjng Asing :</label>
                                                             <input type="text" id="visit_asing2" name="asing_edit" class="form-control" placeholder="pengunjung asing">
                                                         </div>
                                                     </div>
+                                                    </div>
                                                     <div class="col-md-12">
                                                         <div class="form-group">
-                                                            <textarea class="form-control" id="visit_note2" rows="3" name="keterangan_edit" placeholder="keterangan"></textarea>
+                                                            <label class="col-form-label">Catatan :</label>
+                                                            <textarea class="form-control" id="visit_note2" rows="3" name="keterangan_edit" placeholder="catatan"></textarea>
                                                         </div>
                                                     </div>
-                                                </div>
                                             </div>
 
                                             <div class="modal-footer">

@@ -95,7 +95,7 @@ class Dashboard_author extends CI_Controller
 		}
         $this->load->view("partials/back_n/author/header",$data);
         $this->load->view("partials/back_n/author/sidebar");
-        $this->load->view('layout/back_n/v_dashboard');
+        $this->load->view('layout/back_n/author/v_dashboard_author');
         $this->load->view("partials/back_n/author/footer");
         $this->load->view('partials/back_n/js/js_dashboard');
         

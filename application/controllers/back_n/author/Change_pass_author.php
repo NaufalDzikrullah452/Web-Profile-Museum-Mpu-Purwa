@@ -14,7 +14,7 @@ class Change_pass_author extends CI_Controller{
 	}
 
 	function index(){
-		$data['title']= "Ganti Password";
+		$data['title']= "Ubah Password";
 		$this->load->view('partials/back_n/author/header',$data);
 		$this->load->view('partials/back_n/author/sidebar');
 		$this->load->view('layout/back_n/author/v_change_pass_author');

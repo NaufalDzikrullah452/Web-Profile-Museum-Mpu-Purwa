@@ -3,10 +3,10 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Post</h4>
+                            <h4 class="page-title pull-left">List Post</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="#">Dashboard</a></li>
-                                <li><span>Post</span></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/dashboard">Dashboard</a></li>
+                                <li><span>List Post</span></li>
                             </ul>
                         </div>
                     </div>

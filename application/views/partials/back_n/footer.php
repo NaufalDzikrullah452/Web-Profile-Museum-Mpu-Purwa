@@ -1,7 +1,7 @@
         <!-- footer area start-->
         <footer>
             <div class="footer-area">
-                <p>© Copyright <script>document.write(new Date().getFullYear());</script>. Museum Mpu Purwa | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib X DZIK</a>.</p>
+                <p>© Copyright <script>document.write(new Date().getFullYear());</script>| Museum Mpu Purwa Malang</p>
             </div>
         </footer>
         <!-- footer area end-->

@@ -3,11 +3,10 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Tambah Post Baru</h4>
+                            <h4 class="page-title pull-left">Tambah Artikel</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><span><a>Post</a></span></li>
-                                <li><span>Tambah Baru</span></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/author/dashboard_author">Dashboard</a></li>
+                                <li><span>Tambah Artikel</span></li>
                             </ul>
                         </div>
                     </div>

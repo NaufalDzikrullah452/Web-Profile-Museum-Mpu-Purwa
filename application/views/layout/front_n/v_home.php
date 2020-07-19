@@ -14,7 +14,7 @@
                                 <h2>ayo berkunjung ke museum, kenali budayamu, cintai bangsamu</h2>
                                 <p>Berada di jantung kota Malang, diresmikan pada tanggal 14 Juli 2018 oleh Menteri Pendidikan dan Kebudayaan Republik Indonesia Prof. Dr. Muhadjir Efendy </p>
                                 <div class="welcome-btn-group">
-                                    <a href="#" class="btn alazea-btn mr-30">JELAJAHI LEBIH LANJUT...</a>
+                                    <a href="#preview" class="btn alazea-btn mr-30">JELAJAHI</a>
                                    
                                 </div>
                             </div>
@@ -33,9 +33,9 @@
                             <!-- Post Content -->
                             <div class="hero-slides-content text-center">
                                 <h2>Karena Lestari Cagar Budaya, Cermin Identitas Bangsa</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque ante nec ipsum iaculis, ac iaculis ipsum porttitor. Vivamus cursus nisl lectus, id mattis nisl lobortis eu. Duis diam augue, dapibus ut dolor at, mattis maximus dolor.</p>
+                                <p>Koleksi Museum Mpu Purwa berupa Arca, Prasasti dari Kerajaan Mpu Sindok sampai Kerajaan Majapahit, Arca Brahma merupakan maskot Museum Mpu Purwa Malang</p>
                                 <div class="welcome-btn-group">
-                                    <a href="#" class="btn alazea-btn mr-30">JELAJAHI LEBIH LANJUT...</a>
+                                    <a href="#preview" class="btn alazea-btn mr-30">JELAJAHI</a>
                                    
                                 </div>
                             </div>
@@ -54,9 +54,11 @@
                             <!-- Post Content -->
                             <div class="hero-slides-content text-center">
                                 <h2>Kunjungi, Lindungi, Lestarikan</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque ante nec ipsum iaculis, ac iaculis ipsum porttitor. Vivamus cursus nisl lectus, id mattis nisl lobortis eu. Duis diam augue, dapibus ut dolor at, mattis maximus dolor.</p>
+                                <p>Museum Mpu Purwa menempati bangunan Guna Paramitha Acintya Bhakti yang dalam bahasa Indonesia memiliki arti pengabdian yang tulus merupakan sifat yang luhur.
+
+                                </p>
                                 <div class="welcome-btn-group">
-                                    <a href="#" class="btn alazea-btn mr-30">JELAJAHI LEBIH LANJUT...</a>
+                                    <a href="#preview" class="btn alazea-btn mr-30">JELAJAHI</a>
                                    
                                 </div>
                             </div>
@@ -76,7 +78,7 @@
             <div class="row">
                 <div class="col-12">
                     <!-- Section Heading -->
-                    <div class="section-heading text-center">
+                    <div  id="preview" class="section-heading text-center">
                         <h2>FASILITAS</h2>
                         <p>Museum Mpu Purwa Malang</p>
                     </div>
@@ -96,7 +98,7 @@
                             <!-- Content -->
                             <div class="service-content">
                                 <h5>Movie Room</h5>
-                                <p>In Aenean purus, pretium sito amet sapien denim moste consectet sedoni urna placerat sodales.service its.</p>
+                                <p>Ruang yang digunakan untuk pemutaran video - video sejarah</p>
                             </div>
                         </div>
 
@@ -109,7 +111,7 @@
                             <!-- Content -->
                             <div class="service-content">
                                 <h5>Gazebo</h5>
-                                <p>In Aenean purus, pretium sito amet sapien denim moste consectet sedoni urna placerat sodales.service its.</p>
+                                <p>Terdapat gazebo di museum mpu purwa, digunakan untuk bersantai, berkumpul dan berbincang-bincang.</p>
                             </div>
                         </div>
 
@@ -122,15 +124,15 @@
                             <!-- Content -->
                             <div class="service-content">
                                 <h5>Taman</h5>
-                                <p>In Aenean purus, pretium sito amet sapien denim moste consectet sedoni urna placerat sodales.service its.</p>
+                                <p>Taman kecil yang terletak di dekat tempat parkir, ditengah-tengahnya terdapat patung Budha Akhsobya.</p>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <div class="col-12 col-lg-6">
-                        <iframe <?php echo $site_url_video;?> ></iframe>
+                <div class="video-wrapper">
+                        <iframe <?php echo $site_url_video;?>></iframe>
                 </div>
             </div>
         </div>
@@ -158,7 +160,7 @@
                          Abad selanjutnya Malang menjadi daerah bawahan dari kerajaan Mataram Kuno yang telah pindah ke Jawa Timur.
                           Abad ke-13 Malang kembali tampil dalam kancah sejarah jawa, yakni menjadi ibu kota Kerajaan Tumapel.
                            Kerajaan Sengguruh yang merupakan kerajaan Hindu terakhir di Jawa juga berada di kawasan selatan Kota Malang.
-                         Adanya kerajaan-kerajaan tersebut menjadikan daerah Malang banyak ditemukan peninggalan purbakala. <a href="">lainnya...</a></p>
+                         Adanya kerajaan-kerajaan tersebut menjadikan daerah Malang banyak ditemukan peninggalan purbakala. <a href="<?php echo site_url('index.php/about');?>">lainnya...</a></p>
 
                    
                 </div>
@@ -178,7 +180,7 @@
                     <!-- Section Heading -->
                     <div class="section-heading text-center">
                         <h2>Pengunjung</h2>
-                        <p>Pengunjung Museum Mpu Purwa Tahun 2019</p>
+                        <p>Pengunjung Museum Mpu Purwa</p>
                     </div>
                 </div>
            

@@ -23,64 +23,49 @@ class Collect_category extends CI_Controller{
 			$category_id=$q['collect_category_id'];
 			$kategori_nama=$q['collect_category_name'];
 			$jum=$data;
-	        $page=$this->uri->segment(3);
+	        $page=$this->uri->segment(4);
 	        if(!$page):
 	            $offset = 0;
 	        else:
 	            $offset = $page;
 	        endif;
-	        $limit=12;
-	        $config['base_url'] = base_url() . 'collect_category/'.$slug.'/';
+	        $limit=8;
+	        $config['base_url'] = base_url('index.php/collect_category/detail/'.$slug.'/') ;
 	        $config['total_rows'] = $jum->num_rows();
 	        $config['per_page'] = $limit;
 	        $config['uri_segment'] = 3;
 	        $config['use_page_numbers']=TRUE;
 	        
 		    //Tambahan untuk styling
-	        $config['full_tag_open'] = "<ul class='pagination'>";
-	        $config['full_tag_close'] ="</ul>";
-	        $config['num_tag_open'] = '<li>';
-	        $config['num_tag_close'] = '</li>';
-	        $config['cur_tag_open'] = "<li class='disabled'><li class='active'><a href='#'>";
-	        $config['cur_tag_close'] = "<span class='sr-only'></span></a></li>";
-	        $config['next_tag_open'] = "<li>";
-	        $config['next_tagl_close'] = "</li>";
-	        $config['prev_tag_open'] = "<li>";
-	        $config['prev_tagl_close'] = "</li>";
-	        $config['first_tag_open'] = "<li>";
-	        $config['first_tagl_close'] = "</li>";
-	        $config['last_tag_open'] = "<li>";
-	        $config['last_tagl_close'] = "</li>";
-
-		    $config['first_link'] = '<';
-		    $config['last_link'] = '>';
-		    $config['next_link'] = '>>';
-		    $config['prev_link'] = '<<';
+        $config['full_tag_open']   = '<nav aria-label="Page navigation"> <ul class="pagination">';
+        $config['full_tag_close']  = '</ul></nav>';
+        
+        $config['first_link']      = 'First'; 
+        $config['first_tag_open']  = '<li class="page-item"><a  href="#"><span class="page-link">';
+        $config['first_tag_close'] = '</span></li>';
+        
+        $config['last_link']       = 'Last'; 
+        $config['last_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close']  = '</span></li>';
+        
+        $config['next_link']       = ' Next'; 
+        $config['next_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close']  = '</span></li>';
+        
+        $config['prev_link']       = ' Prev '; 
+        $config['prev_tag_open']   = '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_close']  = '</span></li>';
+        
+        $config['cur_tag_open']    = '<li class="page-item active"><span class="page-link">';
+        $config['cur_tag_close']   = '</span></li>';
+         
+        $config['num_tag_open']    = '<li class="page-item"><span class="page-link">';
+		$config['num_tag_close']   = '</span></li>';
+		
 	        $this->pagination->initialize($config);
-	        $x['page'] =$this->pagination->create_links();
-			$x['data']=$this->collection_category_model->collect_category_perpage($category_id,$offset,$limit);
-			$x['judul']= $kategori_nama;
-			$x['description']= "Koleksi ".$kategori_nama." Museum mpu purwa malang.";
-			if(empty($this->uri->segment(3))){
-				$next_page=2;
-				$x['canonical']=site_url('collect_category/'.$slug);
-				$x['url_prev']="";
-			}elseif($this->uri->segment(3)=='1'){
-				$next_page=2;
-				$x['canonical']=site_url('collect_category/'.$slug);
-				$x['url_prev']=site_url('collect_category/'.$slug);
-			}elseif($this->uri->segment(3)=='2'){
-				$next_page=$this->uri->segment(3)+1;
-				$x['canonical']=site_url('collect_category/'.$slug.'/'.$this->uri->segment(3));
-				$x['url_prev']=site_url('collect_category/'.$slug);
-			}else{
-				$next_page=$this->uri->segment(3)+1;
-				$prev_page=$this->uri->segment(3)-1;
-				$x['canonical']=site_url('collect_category/'.$slug.'/'.$this->uri->segment(3));
-				$x['url_prev']=site_url('collect_category/'.$slug.'/'.$prev_page);
-			}
-			
-			$x['url_next']=site_url('collect_category/'.$slug.'/'.$next_page);
+	        $x['page'] = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+			$x['data']=$this->collection_category_model->collect_category_perpage($category_id,$offset,$limit,$config["per_page"], $x['page']);
+			$x['pagination'] = $this->pagination->create_links();
 			$site = $this->site_model->get_site_data()->row_array();
 			$x['site_name'] = $site['site_name'];
 			$x['site_title'] = $site['site_title'];
@@ -94,6 +79,8 @@ class Collect_category extends CI_Controller{
 			$x['site_facebook'] = $site['site_facebook'];
 			$x['site_twitter'] = $site['site_twitter'];
 			$x['site_instagram'] = $site['site_instagram'];
+			$x['judul']= $kategori_nama;
+			$x['description']= "Koleksi ".$kategori_nama." Museum mpu purwa malang.";
 			$x['latest_post'] = $this->home_model->get_latest_post();
 			$x['popular_post'] = $this->home_model->get_popular_post();
 			$this->load->view('layout/front_n/v_collect_category',$x);

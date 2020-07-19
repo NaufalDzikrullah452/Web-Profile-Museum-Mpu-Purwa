@@ -9,9 +9,9 @@
                         <div class="breadcrumbs-area clearfix">
                             <h4 class="page-title pull-left">Edit Post</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><span><a>Post</a></span></li>
-                                <li><span>Edit</span></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/dashboard">Dashboard</a></li>
+                                <li><span><a href="<?php echo base_url();?>index.php/back_n/post">Post</a></span></li>
+                                <li><span>Edit Post</span></li>
                             </ul>
                         </div>
                     </div>

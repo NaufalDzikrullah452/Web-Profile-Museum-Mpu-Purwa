@@ -13,7 +13,7 @@ class Tag_author extends CI_Controller{
 	}
 
 	function index(){
-		$x['title']= "Tag Post";
+		$x['title']= "Tag Artikel";
 		$x['data'] = $this->tag_model->get_all_tag();
 		$this->load->view('partials/back_n/author/header',$x);
 		$this->load->view('partials/back_n/author/sidebar');

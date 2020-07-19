@@ -10,8 +10,8 @@
     <!-- Title -->
     <title><?php echo $judul;?></title>
 
-   <!-- SEO Tags -->
-    <meta name="description" content="Kumpulan artikel <?php echo $meta_description;?> dan banyak lagi..."/>
+    <!-- SEO Tags -->
+    <meta name="description" content="Website Museum Mpu Purwa Malang <?php echo $meta_description;?> "/>
     <link rel="canonical" href="<?php echo $canonical;?>" />
     <?php error_reporting(0); if(empty($url_prev)):?>
     <?php else:?>
@@ -20,11 +20,11 @@
     <link rel="next" href="<?php echo $url_next;?>" />
     <meta property="og:locale" content="id_ID" />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="<?php echo $judul;?>" />
-    <meta property="og:description" content="Kumpulan artikel <?php echo $meta_description;?> dan banyak lagi..." />
+    <meta property="og:title" content="<?php echo $title;?>" />
+    <meta property="og:description" content="Website Museum Mpu Purwa Malang <?php echo $meta_description;?> " />
     <meta property="og:url" content="<?php echo $canonical;?>" />
-    <meta property="og:image" content="<?php echo base_url().'theme/images/logo.png'?>" />
-    <meta property="og:image:secure_url" content="<?php echo base_url().'theme/images/logo.png'?>" />
+    <meta property="og:image" content="<?php echo base_url().'upload/images/'.$site_shortcut_icon;?>" />
+    <meta property="og:image:secure_url" content="<?php echo base_url().'upload/images/'.$site_shortcut_icon;?>" />
     <meta property="og:image:width" content="560" />
     <meta property="og:image:height" content="315" />
     <!-- / SEO plugin. -->
@@ -133,7 +133,7 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Beranda</a></li>
+                            <li class="breadcrumb-item"><a href="<?php echo site_url();?>"><i class="fa fa-home"></i> Beranda</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Pencarian</li>
                         </ol>
                     </nav>
@@ -239,7 +239,6 @@
         </div>
     </section>
     <!-- ##### Blog Area End ##### -->
-
     <!-- ##### Footer Area Start ##### -->
     <footer class="footer-area bg-img" style="background-image: url(<?php echo base_url('assets/frontend/img/bg-img/bg-footer.jpg');?>);">
         <!-- Main Footer Area -->
@@ -251,7 +250,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget">
                             <div class="footer-logo mb-30">
-                                <a href="#"><img src="<?php echo base_url().'upload/images/'.$site_logo_footer;?>" alt=""></a>
+                                <a href="<?php base_url();?>"><img src="<?php echo base_url().'upload/images/'.$site_logo_footer;?>" alt=""></a>
                             </div>
                             <p><?php echo $site_description;?></p>
                            
@@ -272,12 +271,12 @@
                             </div>
                             <nav class="widget-nav">
                                 <ul>
-                                    <li><a href="#">Arca</a></li>
-                                    <li><a href="#">Prasasti</a></li>
-                                    <li><a href="#">Museum</a></li>
-                                    <li><a href="#">Berita / Artikel</a></li>
-                                    <li><a href="#">Booking</a></li>
-                                    <li><a href="#">Map</a></li>
+                                    <li><a href="<?php echo site_url('index.php/collect_category/arca');?>">Arca</a></li>
+                                    <li><a href="<?php echo site_url('index.php/collect_category/prasasti');?>">Prasasti</a></li>
+                                    <li><a href="<?php echo site_url('index.php/about');?>">Museum</a></li>
+                                    <li><a href="<?php echo site_url('index.php/blog');?>">Berita / Artikel</a></li>
+                                    <li><a href="<?php echo site_url('index.php/reserv');?>">Reservasi</a></li>
+                                    <li><a href="<?php echo site_url('index.php/contact');?>">Map</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -342,10 +341,7 @@
                     <!-- Copywrite Text -->
                     <div class="col-12 col-md-6">
                         <div class="copywrite-text">
-                            <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
+                            <p> &copy; <script>document.write(new Date().getFullYear());</script> Museum Mpu Purwa Malang</p>
                         </div>
                     </div>
                     <!-- Footer Nav -->
@@ -353,11 +349,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                         <div class="footer-nav">
                             <nav>
                                 <ul>
-                                    <li><a href="<?php echo base_url();?>">Beranda</a></li>
-                                    <li><a href="<?php echo base_url();?>about">Tentang Kami</a></li>
-                                    <li><a href="<?php echo base_url();?>collect">Koleksi</a></li>
-                                    <li><a href="<?php echo base_url();?>reserv">Reservasi</a></li>
-                                    <li><a href="<?php echo base_url();?>kontak">Kontak</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php">Beranda</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/about">Tentang Kami</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/collect">Koleksi</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/reserv">Reservasi</a></li>
+                                    <li><a href="<?php echo base_url();?>index.php/contact">Kontak</a></li>
                                 </ul>
                             </nav>
                         </div>

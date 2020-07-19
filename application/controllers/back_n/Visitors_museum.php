@@ -12,7 +12,6 @@ class Visitors_museum extends CI_Controller{
 
     function index(){
         $x['title']= "Data Pengunjung";
-        $x['bulan'] = $this->visitors_museum_model->get_month()->result();
 		$this->load->view('partials/back_n/header',$x);
 		$this->load->view('partials/back_n/sidebar');
 		$this->load->view('layout/back_n/v_visitors_museum');
@@ -39,35 +38,33 @@ class Visitors_museum extends CI_Controller{
  
     function save_visitor(){
         $visit_id=$this->input->post('visit_id');
-        $bulan=$this->input->post('bulan');
-        $tahun=$this->input->post('tahun');
+        $bulan_tahun=$this->input->post('bulan_tahun');
         $dinas=$this->input->post('dinas');
         $umum=$this->input->post('umum');
         $pelajar=$this->input->post('pelajar');
         $asing=$this->input->post('asing');
         $keterangan=$this->input->post('keterangan');
-        $data=$this->visitors_museum_model->save_visitor($visit_id,$bulan,$tahun,$dinas,$umum,$pelajar,$asing,$keterangan);
+        $data=$this->visitors_museum_model->save_visitor($visit_id,$bulan_tahun,$dinas,$umum,$pelajar,$asing,$keterangan);
         echo json_encode($data);
     }
  
     function update_visitor(){
         $visit_id=$this->input->post('visit_id');
-        $bulan=$this->input->post('bulan');
-        $tahun=$this->input->post('tahun');
+        $bulan_tahun=$this->input->post('bulan_tahun');
         $dinas=$this->input->post('dinas');
         $umum=$this->input->post('umum');
         $pelajar=$this->input->post('pelajar');
         $asing=$this->input->post('asing');
         $keterangan=$this->input->post('keterangan');
-        $data=$this->visitors_museum_model->update_visitor($visit_id,$bulan,$tahun,$dinas,$umum,$pelajar,$asing,$keterangan);
+        $data=$this->visitors_museum_model->update_visitor($visit_id,$bulan_tahun,$dinas,$umum,$pelajar,$asing,$keterangan);
         echo json_encode($data);
     }
  
     public function pdf_output()
 	{
+        
         $visit_id=$this->input->post('visit_id');
-        $bulan=$this->input->post('bulan');
-        $tahun=$this->input->post('tahun');
+        $bulan_tahun=$this->input->post('bulan_tahun');
         $nama_cb=$this->input->post('nama_cb');
         $desa=$this->input->post('desa');
         $dusun=$this->input->post('dusun');
@@ -126,13 +123,13 @@ class Visitors_museum extends CI_Controller{
         <tr>
             <td width="100px" class="jarak">Bulan</td>
             <td width="10px" class="jarak" >:</td>
-            <td class="jarak">'.$bulan.'</td>';
+            <td class="jarak">'.date('F',strtotime($bulan_tahun)).'</td>';
     
         $html_content.='
             <td width="100px" class="jarak" ></td>
             <td width="100px" class="jarak" >Tahun</td>
             <td width="10px" class="jarak">:</td>
-            <td>'.$tahun.'</td>
+            <td>'.date('Y',strtotime($bulan_tahun)).'</td>
         </tr>
 
         <tr>
@@ -265,7 +262,7 @@ tr>
     <br>
     <table width="100%">
         <tr>
-            <td width="100px" style="text-align: right; padding-right: 100px;">Malang, '.date('d M, Y ',strtotime($tgl)).'</td>
+            <td width="100px" style="text-align: right; padding-right: 100px;">Malang, '.tanggal('d F Y ',strtotime($tgl)).'</td>
         </tr>
     </table>
     <br><br>
@@ -320,8 +317,7 @@ tr>
 
         $this->pdf->loadHtml($html_content);
         $this->pdf->render();
-        $this->pdf->stream("Cetak Laporan Bulanan Pengunjung Museum Mpu Purwa ".$bulan.".pdf", array("Attachment"=>0));
-		
+        $this->pdf->stream("Cetak Laporan Bulanan Pengunjung Museum Mpu Purwa ".date('F Y',strtotime($bulan_tahun)).".pdf", array("Attachment"=>0));
     }
 
     function delete_visitor(){

@@ -35,11 +35,18 @@ class Collection_category_model extends CI_Model{
 		return $query;
 	}
 
-	function collect_category_perpage($category_id,$offset,$limit){
+	function collect_category_perpage($category_id,$start,$limit){
 		$query = $this->db->query("SELECT tbl_collection.*,tbl_collect_category.*,user_name FROM
 			tbl_collection LEFT JOIN tbl_collect_category ON collect_kategori_id=collect_category_id
 			LEFT JOIN tbl_user ON collect_user_id=user_id
-			WHERE collect_category_id='$category_id' LIMIT $offset,$limit");
+			WHERE collect_category_id='$category_id' LIMIT $start,$limit");
+		return $query;
+	}
+
+	function count_by_category ($category_id){
+		$query = $this->db->query("SELECT COUNT(*) FROM
+			tbl_collection LEFT JOIN tbl_collect_category ON collect_kategori_id=collect_category_id
+			WHERE collect_category_id='$category_id'");
 		return $query;
 	}
 

@@ -14,7 +14,7 @@ class Post_author extends CI_Controller{
 	}
 
 	function index(){
-		$x['title']= "Daftar Post";
+		$x['title']= "Daftar Artikel";
 		$x['data'] = $this->post_model->get_all_post();
 		$this->load->view('partials/back_n/author/header',$x);
 		$this->load->view('partials/back_n/author/sidebar');
@@ -36,7 +36,7 @@ class Post_author extends CI_Controller{
 
 	function get_edit(){
 		$post_id = $this->uri->segment(5);
-		$x['title']= "Edit Post";
+		$x['title']= "Edit Artikel";
 		$x['tag']	   = $this->tag_model->get_all_tag();
 		$x['category'] = $this->category_model->get_all_category();
 		$x['data'] = $this->post_model->get_post_by_id($post_id);

@@ -3,10 +3,9 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Tag Post</h4>
+                            <h4 class="page-title pull-left">Tag Artikel</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><span><a>Post</a></span></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/author/dashboard_author">Dashboard</a></li>
                                 <li><span>Tag</span></li>
                             </ul>
                         </div>
@@ -79,7 +78,7 @@
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title">Tambah Tag Post</h5>
+                                                <h5 class="modal-title">Tambah Tag Artikel</h5>
                                                 <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
                                             </div>
                                             <div class="modal-body">

@@ -7,16 +7,17 @@ class Blog_model extends CI_Model{
 		return $query;
 	}
 
-	function get_blog_perpage($offset,$limit){
+	function get_blog_perpage($start,$limit){
 		$this->db->select('tbl_post.*, user_name');
 		$this->db->from('tbl_post');
 		$this->db->join('tbl_user', 'post_user_id=user_id','left');
 		$this->db->order_by('post_id', 'DESC');
-		$this->db->limit('$offset','$limit');
+		$this->db->limit($start,$limit);
 		$query = $this->db->get();
 		return $query;
 	}
 
+	
 	function get_post_by_slug($slug){
 		$query = $this->db->query("SELECT tbl_post.*,user_name,COUNT(comment_id) AS comment_total,tbl_category.* FROM tbl_post 
 			LEFT JOIN tbl_user ON post_user_id=user_id

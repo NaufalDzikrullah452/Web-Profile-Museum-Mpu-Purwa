@@ -3,10 +3,10 @@
                 <div class="row align-items-center">
                     <div class="col-sm-6">
                         <div class="breadcrumbs-area clearfix">
-                            <h4 class="page-title pull-left">Ganti Password</h4>
+                            <h4 class="page-title pull-left">Ubah Password</h4>
                             <ul class="breadcrumbs pull-left">
-                                <li><a href="index.html">Dashboard</a></li>
-                                <li><span>Ganti Password</span></li>
+                                <li><a href="<?php echo base_url();?>index.php/back_n/author/dashboard_author">Dashboard</a></li>
+                                <li><span>Ubah Password</span></li>
                             </ul>
                         </div>
                     </div>
@@ -39,9 +39,9 @@
                             <div class="col-12 mt-5">
                                 <div class="card">
                                     <div class="card-body">
-                                        <h4 class="header-title">Ganti Password</h4>
+                                        <h4 class="header-title">Ubah Password</h4>
 
-                                    <form  action="<?php echo site_url('index.php/back_n/author/change_pass_author');?>" method="post">
+                                    <form  action="<?php echo site_url('index.php/back_n/author/change_pass_author/change');?>" method="post">
                                        <div class="form-group">
                                             <label for="example-text-input" class="col-form-label"><strong>Password Lama</strong></label>
                                             <input type="password" name="old_password" class="form-control" id="inputPassword1" placeholder="password lama" required>
@@ -57,7 +57,7 @@
 
                                         <div class="form-group">
                                         
-                                          <button type="submit" class="btn btn-md btn-success">Ubah Password</button>
+                                          <button type="submit" class="btn btn-md btn-success">Simpan</button>
                                         
                                       </div>
                                     </form>

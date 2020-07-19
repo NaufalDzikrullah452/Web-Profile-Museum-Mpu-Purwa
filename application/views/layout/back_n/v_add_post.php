@@ -6,7 +6,7 @@
                             <h4 class="page-title pull-left">Tambah Post Baru</h4>
                             <ul class="breadcrumbs pull-left">
                                 <li><a href="index.html">Dashboard</a></li>
-                                <li><span><a>Post</a></span></li>
+                                <li><span><a href="<?php echo base_url();?>index.php/back_n/post">Post</a></span></li>
                                 <li><span>Tambah Baru</span></li>
                             </ul>
                         </div>

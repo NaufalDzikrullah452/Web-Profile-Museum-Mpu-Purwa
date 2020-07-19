@@ -2640,5 +2640,31 @@ img {
     margin-bottom: 0; }
 
 /* ======= The End ======= */
+/* Custom Css */
+
+.videowrapper { 
+  float: none; 
+  clear: both;
+   width: 100%;
+    position: relative;
+     padding-bottom: 56.25%;
+      padding-top: 25px; height: 0;
+     }
+ .videowrapper iframe {
+    position: absolute;
+     top: 0;
+      left: 0;
+       width: 100%;
+        height: 100%;
+       }
+
+#share-buttons img {
+width: 35px;
+padding: 5px;
+border: 0;
+box-shadow: 0;
+display: inline;
+}
+/* Custom Css */
 
 /*# sourceMappingURL=style.css.map */

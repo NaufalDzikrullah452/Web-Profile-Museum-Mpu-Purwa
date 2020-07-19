@@ -11,7 +11,7 @@ class Category_author extends CI_Controller{
 	}
 
 	function index(){
-		$x['title']= "Kategori Post";
+		$x['title']= "Kategori Artikel";
 		$x['data'] = $this->category_model->get_all_category();
 		$this->load->view('partials/back_n/author/header',$x);
 		$this->load->view('partials/back_n/author/sidebar');
